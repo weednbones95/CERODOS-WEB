@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cerodos Conversa — CRM Conversacional</title>
+  <meta name="description" content="WhatsApp, Instagram, Messenger y Web Chat en una sola bandeja, con operadores, historial, tickets, etiquetas y métricas." />
+
+  <!-- Tipografías de marca: Manrope (títulos) e Inter (texto/interfaz) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="../assets/logo/cerodos-favicon-16.png" type="image/png" sizes="16x16" />
+  <link rel="icon" href="../assets/logo/cerodos-favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../assets/logo/cerodos-favicon-64.png" type="image/png" sizes="64x64" />
+  <link rel="stylesheet" href="../assets/css/cerodos.css" />
+
+<link rel="stylesheet" href="../assets/css/precios-v07.css" />
+<link rel="stylesheet" href="../assets/css/fondos-v08.css" />
+<style>main#main{--fondo-v08:url('../fondos-v12/conversa.svg')}</style>
+<link rel="stylesheet" href="../assets/css/whatsapp.css">
+<script defer src="../assets/js/whatsapp-config.js"></script>
+<script defer src="../assets/js/whatsapp.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <!-- ============ HEADER (compartido — ver _partials.html) ============ -->
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Cerodos — inicio">
+        <img class="brand__isotipo" src="../assets/logo/cerodos-isotipo-caja-205x130.png" alt="" width="205" height="130" />
+        <img class="brand__wordmark" src="../assets/logo/manual-extract-wordmark-dark.png" alt="" width="117" height="27" />
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="main-nav__list">
+          <li><a href="../productos/index.html" aria-current="true">Productos</a></li>
+          <li><a href="../soluciones/index.html">Soluciones</a></li>
+          <li><a href="../probar-cerodos/index.html">Probá Cerodos</a></li>
+          <li><a href="../nosotros/index.html">Nosotros</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a class="btn btn--primary btn--sm" href="#whatsapp" data-whatsapp>Hablemos</a>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Abrir menú de navegación"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <div class="mobile-nav" id="mobile-nav" data-state="closed">
+      <ul class="mobile-nav__list">
+          <li><a href="../productos/index.html" aria-current="true">Productos</a></li>
+          <li><a href="../soluciones/index.html">Soluciones</a></li>
+          <li><a href="../probar-cerodos/index.html">Probá Cerodos</a></li>
+          <li><a href="../nosotros/index.html">Nosotros</a></li>
+          <li><a class="btn btn--primary btn--lg" href="#whatsapp" data-whatsapp>Hablemos</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <!-- ============ HERO DE PÁGINA ============ -->
+    <section class="section-block page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Cerodos Conversa · CRM Conversacional</p>
+        <h1 id="page-title" data-reveal>Tus conversaciones y clientes organizados en un mismo lugar.</h1>
+        <p class="page-hero__lead">Todos los canales por los que te escriben tus clientes llegan a una sola bandeja, con historial, responsables y seguimiento.</p>
+      </div>
+    </section>
+
+    <!-- ============ CANALES ============ -->
+    <section class="section-block" aria-labelledby="canales-title">
+      <div class="container split">
+        <div class="split__copy" data-reveal>
+          <h2 id="canales-title">Una bandeja para todos los canales</h2>
+          <p>
+            WhatsApp, Instagram, Facebook Messenger y el chat de tu sitio web
+            llegan al mismo lugar. Tu equipo deja de saltar entre aplicaciones y
+            de perder mensajes en cuentas personales.
+          </p>
+          <ul class="tick-list">
+            <li>WhatsApp</li>
+            <li>Instagram</li>
+            <li>Facebook Messenger</li>
+            <li>Web Chat</li>
+          </ul>
+        </div>
+        <div class="split__visual" data-reveal data-reveal-delay="1" aria-hidden="true">
+          <div class="device-frame">
+            <div class="device-frame__bar">
+              <span class="dot dot--blue"></span><span class="dot dot--green"></span><span class="dot dot--gray"></span>
+              <span class="device-frame__title">Cerodos Conversa · Bandeja</span>
+            </div>
+            <div class="mini-app">
+              <div class="mini-app__sidebar">
+                <span class="mini-app__channel mini-app__channel--active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.8 7.8L3 21l1.7-6.2A8.5 8.5 0 1 1 21 11.5Z"/></svg></span>
+                <span class="mini-app__channel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg></span>
+                <span class="mini-app__channel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C7 3 3 6.6 3 11c0 2.5 1.3 4.7 3.4 6.2V21l3.1-1.7c.8.2 1.6.3 2.5.3 5 0 9-3.6 9-8s-4-8.6-9-8.6Z"/></svg></span>
+                <span class="mini-app__channel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v13H7l-3 3V4Z"/></svg></span>
+              </div>
+              <div class="mini-app__main">
+                <div class="mini-app__row"><span class="mini-app__name">Lucía Gómez</span><span class="mini-app__tag">Nuevo</span></div>
+                <p class="mini-app__preview">¿Está disponible el producto en talle M?</p>
+                <div class="mini-app__row"><span class="mini-app__name">Martín Ibarra</span></div>
+                <p class="mini-app__preview">Perfecto, quedamos así entonces. ¡Gracias!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="features-title">
+      <div class="container">
+        <h2 id="features-title" class="section-title" data-reveal>Qué incluye</h2>
+        <div class="feature-grid feature-grid--3 feature-grid--compact">
+          <article class="feature" data-reveal>
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 11.2A3.2 3.2 0 1 0 16 4.8"/><path d="M17.5 20a6 6 0 0 0-3-5.2"/></svg></span>
+            <h3>Operadores</h3>
+            <p>Cada conversación tiene un responsable y el equipo sabe quién atiende qué.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="1">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg></span>
+            <h3>Historial</h3>
+            <p>Todo lo que se habló con un contacto queda en un mismo lugar.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="2">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8Z"/><path d="M12 8v8"/></svg></span>
+            <h3>Tickets</h3>
+            <p>Las consultas que necesitan seguimiento dejan de vivir en la memoria de alguien.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4h8l9 9-8 8-9-9Z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></span>
+            <h3>Etiquetas</h3>
+            <p>Clasificá contactos y conversaciones según cómo trabaja tu empresa.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg></span>
+            <h3>Seguimiento</h3>
+            <p>Quedá registro de qué se respondió, qué falta y qué se cerró.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11M10 20V4M16 20v-6M2 20h20"/></svg></span>
+            <h3>Métricas y reportes</h3>
+            <p>Volumen de consultas, tiempos de respuesta y actividad del equipo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRECIO + CTA ============ -->
+    <section class="section-block cta-band" aria-labelledby="cta-title">
+      <div class="container cta-band__inner" data-reveal>
+        <div class="product-commercial">
+          <p class="eyebrow">Precio</p>
+          <div class="product-commercial__pricing">
+            <div class="product-commercial__row">
+              <span class="product-commercial__label">Implementación</span>
+              <span class="product-commercial__amount">ARS 272.000</span>
+            </div>
+            <div class="product-commercial__row">
+              <span class="product-commercial__label">Mensual</span>
+              <span class="product-commercial__amount">ARS 134.000</span>
+            </div>
+          </div>
+          <p class="note">Valores de referencia sujetos a confirmación según alcance e implementación.</p>
+        </div>
+        <h2 id="cta-title">¿Lo vemos con tus canales?</h2>
+        <p>Te mostramos cómo quedaría la bandeja con la operación de tu empresa.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--primary btn--lg" href="#whatsapp" data-whatsapp>Hablemos</a>
+          <a class="btn btn--ghost btn--lg" href="../probar-cerodos/index.html">Probá Cerodos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OTROS PRODUCTOS ============ -->
+    <section class="section-block other-products" aria-labelledby="other-title">
+      <div class="container">
+        <h2 id="other-title" class="section-title" data-reveal>Otros productos</h2>
+        <div class="other-products__list" data-reveal>
+            <a class="other-products__item" href="../productos/agentes.html">
+              <span class="other-products__name">Cerodos Agentes</span>
+              <span class="other-products__sub">Agentes Inteligentes</span>
+            </a>
+            <a class="other-products__item" href="../productos/crm-integrado.html">
+              <span class="other-products__name">Cerodos CRM Integrado</span>
+              <span class="other-products__sub">Nos conectamos a tu sistema de gestión.</span>
+            </a>
+            <a class="other-products__item" href="../productos/proyectos.html">
+              <span class="other-products__name">Cerodos Proyectos</span>
+              <span class="other-products__sub">Desarrollos con alcance definido.</span>
+            </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ============ FOOTER (compartido — ver _partials.html) ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="brand" href="../index.html" aria-label="Cerodos — inicio">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__word">cerodos</span>
+        </a>
+        <p>Inteligencia que suma capacidad.</p>
+      </div>
+
+      <nav class="site-footer__links" aria-label="Enlaces del pie">
+        <a href="../productos/index.html">Productos</a>
+        <a href="../soluciones/index.html">Soluciones</a>
+        <a href="../nosotros/index.html">Nosotros</a>
+        <a href="../contacto/index.html">Contacto</a>
+      </nav>
+    </div>
+    <div class="container site-footer__legal">
+      <p>&copy; <span id="year"></span> Cerodos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/cerodos.js"></script>
+<a class="wa-floating" href="#whatsapp" data-whatsapp aria-label="Hablemos por WhatsApp" title="Hablemos por WhatsApp"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M26.7 5.3a14 14 0 0 0-22 16.6L2.8 29l7.3-1.9A14 14 0 0 0 26.7 5.3Z"/><path fill="currentColor" d="M11.3 8.7c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.8.1-1.2.6-.4.5-1.5 1.5-1.5 3.6s1.5 4.1 1.7 4.4c.2.3 3 4.7 7.4 6.4 3.7 1.5 4.4 1.2 5.2 1.1.8-.1 2.6-1.1 3-2.1.4-1 .4-1.9.3-2.1-.1-.2-.4-.3-.9-.5l-3-1.4c-.4-.2-.7-.3-1 .2-.3.5-1.1 1.4-1.4 1.7-.3.3-.5.3-1 .1-.5-.2-2-.7-3.7-2.3-1.4-1.2-2.3-2.7-2.5-3.2-.3-.5 0-.7.2-.9l.7-.8c.2-.3.3-.5.4-.8.2-.3.1-.6 0-.8l-1.1-2.5Z"/></svg></a>
+</body>
+</html>

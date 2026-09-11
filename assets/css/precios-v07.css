@@ -1,0 +1,15 @@
+/* Recuadros comerciales: sin padding, tamaño de letra o geometría nuevos. */
+.product-commercial__row {
+ background-color:#eef3ff;
+ outline:2px solid #2563eb;
+ outline-offset:4px;
+ border-radius:6px;
+}
+.product-commercial__row:nth-child(2) {background-color:#e9faf3;outline-color:#10b981;}
+.product-commercial__amount {color:#0f172a;}
+.product-commercial > .lead {
+ background-color:#eef3ff;
+ outline:2px solid #2563eb;
+ outline-offset:4px;
+ border-radius:6px;
+}

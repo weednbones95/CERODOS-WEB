@@ -1,0 +1,16 @@
+/* Home: visual circular discreto. Solo este bloque se reemplaza. */
+.cerodos-orbit-stage{width:100%;height:320px;display:flex;align-items:center;justify-content:center;border-radius:24px;background:radial-gradient(ellipse at center,#fff 0%,#fff 70%,rgba(255,255,255,.97) 86%,rgba(255,255,255,.85) 100%);}
+.cerodos-orbit{display:block;width:100%;height:100%;overflow:visible;}
+@keyframes orbit-company-in{from{opacity:0;transform:translate(-10px,-6px)}to{opacity:1;transform:translate(0,0)}}
+@keyframes orbit-process-in{from{opacity:0;transform:translate(10px,-4px)}to{opacity:1;transform:translate(0,0)}}
+@keyframes orbit-data-in{from{opacity:0;transform:translate(0,10px)}to{opacity:1;transform:translate(0,0)}}
+@keyframes orbit-connect{from{stroke-dashoffset:1;opacity:0}to{stroke-dashoffset:0;opacity:1}}
+.cerodos-orbit-stage.is-playing .orbit-company{animation:orbit-company-in 640ms ease-out both;}
+.cerodos-orbit-stage.is-playing .orbit-process{animation:orbit-process-in 640ms ease-out 128ms both;}
+.cerodos-orbit-stage.is-playing .orbit-data{animation:orbit-data-in 640ms ease-out 256ms both;}
+.cerodos-orbit-stage.is-playing .orbit-link{stroke-dasharray:1;animation:orbit-connect 960ms ease-in-out 440ms both;}
+.cerodos-orbit-stage.is-waiting .orbit-item,.cerodos-orbit-stage.is-waiting .orbit-link{opacity:0;}
+@media(prefers-reduced-motion:reduce){.cerodos-orbit-stage .orbit-item,.cerodos-orbit-stage .orbit-link{animation:none!important;opacity:1!important;stroke-dasharray:none!important;transform:none!important;}}
+
+/* v18: sin panel, contorno blanco individual con margen de 4 unidades SVG y sombra discreta. */
+.cerodos-orbit-stage{background:none;border-radius:0;}

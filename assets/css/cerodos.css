@@ -1,0 +1,2829 @@
+/* =====================================================================
+   CERODOS — Frontend (sin backend)
+   Hoja de estilos única, compartida por todas las páginas del sitio. Organizada en bloques:
+   1. Variables y reset
+   2. Utilidades y tipografía
+   3. Componentes (botones, badges, chips, mockups de interfaz)
+   4. Header y navegación
+   5. Secciones (hero, problemas, productos, inmobiliaria, demo, precios,
+      pasos, caso real, cta final)
+   6. Footer
+   7. Animaciones y accesibilidad (prefers-reduced-motion)
+   8. Sitio multipágina — componentes nuevos (mobile-first)
+   ===================================================================== */
+
+/* ---------- 1. Variables y reset ---------- */
+:root {
+  /* Colores de marca — extraídos del manual de marca (ver assets/logo/README.txt) */
+  --color-blue: #2563eb;
+  --color-blue-600: #1d4ed8;
+  --color-blue-50: #eef3ff;
+  --color-green: #10b981;
+  --color-green-600: #0c9c6d;
+  --color-green-50: #e9faf3;
+  --color-graphite: #0f172a;
+  --color-graphite-70: rgba(15, 23, 42, 0.7);
+  --color-graphite-50: rgba(15, 23, 42, 0.5);
+  --color-gray-light: #e5e7eb;
+  --color-gray-50: #f8fafc;
+  --color-white: #ffffff;
+
+  --color-text: var(--color-graphite);
+  --color-text-muted: #4b5570;
+  --color-border: #e5e7eb;
+  --color-bg: var(--color-white);
+  --color-bg-alt: var(--color-gray-50);
+
+  /* Tipografía */
+  --font-heading: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  /* Espaciados */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6.5rem;
+
+  /* Radios y sombras */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 1px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 12px 24px -12px rgba(15, 23, 42, 0.18);
+  --shadow-lg: 0 24px 48px -20px rgba(15, 23, 42, 0.25);
+
+  /* Layout */
+  --container-max: 1180px;
+
+  /* Transiciones */
+  --transition-fast: 150ms ease;
+  --transition-base: 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 var(--space-3);
+  color: var(--color-graphite);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 var(--space-3);
+}
+
+a {
+  color: inherit;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Foco visible y consistente en toda la web */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-3);
+  top: -100px;
+  background: var(--color-graphite);
+  color: var(--color-white);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  z-index: 200;
+  transition: top var(--transition-base);
+}
+
+.skip-link:focus {
+  top: var(--space-3);
+}
+
+/* ---------- 2. Utilidades y tipografía ---------- */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  margin: 0 0 var(--space-3);
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+  text-align: center;
+  max-width: 40ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-3);
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 52ch;
+  margin: 0 auto var(--space-7);
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 600;
+  color: var(--color-blue);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast), gap var(--transition-fast);
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  border-color: currentColor;
+  gap: var(--space-2);
+}
+
+.placeholder-tag {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+section {
+  padding-block: var(--space-9);
+}
+
+/* ---------- 3. Componentes ---------- */
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    background-color var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn--sm {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+}
+
+.btn--lg {
+  padding: 0.85rem 1.7rem;
+  font-size: 1rem;
+}
+
+.btn--primary {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--color-blue-600);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-graphite);
+  border-color: var(--color-gray-light);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  border-color: var(--color-graphite);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Badges y chips */
+.badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+
+.badge--neutral {
+  background: var(--color-gray-light);
+  color: var(--color-text-muted);
+}
+
+.badge--vertical {
+  background: var(--color-graphite);
+  color: var(--color-white);
+}
+
+.chip {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-gray-light);
+  background: var(--color-white);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.chip:hover,
+.chip:focus-visible {
+  border-color: var(--color-blue);
+  background: var(--color-blue-50);
+  transform: translateY(-1px);
+}
+
+.chip[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mockup de interfaz genérico ("device frame") */
+.device-frame {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.device-frame--compact {
+  box-shadow: var(--shadow-md);
+}
+
+.device-frame__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-graphite);
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot--blue {
+  background: var(--color-blue);
+}
+
+.dot--green {
+  background: var(--color-green);
+}
+
+.dot--gray {
+  background: var(--color-gray-light);
+}
+
+.device-frame__title {
+  margin-left: var(--space-2);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Flujo animado del hero */
+.flow {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: var(--color-bg-alt);
+}
+
+.flow__step {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.flow__step.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flow__badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-2);
+}
+
+.flow__badge--incoming {
+  background: var(--color-gray-light);
+  color: var(--color-text-muted);
+}
+
+.flow__badge--agent {
+  background: var(--color-green-50);
+  color: var(--color-green-600);
+  display: block;
+  margin-top: var(--space-2);
+  margin-bottom: 0;
+  width: fit-content;
+}
+
+.flow__bubble {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  max-width: 85%;
+  font-size: 0.92rem;
+}
+
+.flow__bubble--in {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-bottom-left-radius: var(--space-1);
+}
+
+.flow__bubble--out {
+  background: var(--color-blue);
+  color: var(--color-white);
+  margin-left: auto;
+  border-bottom-right-radius: var(--space-1);
+}
+
+.flow__step--tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.flow__tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+}
+
+.flow__tag--success {
+  background: var(--color-green-50);
+  color: var(--color-green-600);
+}
+
+.flow__tag--info {
+  background: var(--color-blue-50);
+  color: var(--color-blue-600);
+}
+
+.flow__tag--neutral {
+  background: var(--color-gray-light);
+  color: var(--color-text-muted);
+}
+
+/* Mini chat (usado en tarjetas de producto, demo y caso real) */
+.mini-chat {
+  padding: var(--space-5);
+  background: var(--color-bg-alt);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mini-chat__bubble {
+  max-width: 88%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.mini-chat__bubble--user {
+  align-self: flex-end;
+  background: var(--color-blue);
+  color: var(--color-white);
+  border-bottom-right-radius: var(--space-1);
+}
+
+.mini-chat__bubble--agent {
+  align-self: flex-start;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-bottom-left-radius: var(--space-1);
+}
+
+.mini-chat__status {
+  font-size: 0.75rem;
+  color: var(--color-green-600);
+  font-weight: 600;
+}
+
+/* Mini app (mockup de inbox para Conversa) */
+.mini-app {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  background: var(--color-bg-alt);
+  min-height: 220px;
+}
+
+.mini-app__sidebar {
+  background: var(--color-graphite);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+}
+
+.mini-app__channel {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.mini-app__channel svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mini-app__channel--active {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+
+.mini-app__main {
+  padding: var(--space-4);
+  /* Acento decorativo aprobado (proyecto gráfico v01, pieza
+     cerodos-conversa-canales-v01): ocupa únicamente el margen vacío bajo
+     el último mensaje del mock (~100px libres, verificado en
+     320/390/820/1280px). No toca padding, dimensiones ni contenido; es
+     puramente ornamental, sin texto ni interactividad. */
+  background-image: url("../graphics/cerodos-conversa-canales-v01.svg");
+  background-repeat: no-repeat;
+  background-position: right 16px bottom 16px;
+  background-size: 60px 24px;
+}
+
+.mini-app__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-3);
+}
+
+.mini-app__row:first-child {
+  margin-top: 0;
+}
+
+.mini-app__name {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.mini-app__tag {
+  background: var(--color-blue);
+  color: var(--color-white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.1rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.mini-app__preview {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: var(--space-1) 0 0;
+}
+
+/* ---------- 4. Header y navegación ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--color-graphite);
+}
+
+/* Placeholder de marca: reemplazar por el isotipo real cuando esté disponible
+   (ver assets/logo/README.txt). No se reinterpreta el logo real. */
+.brand__mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  /* Isotipo real (limpieza técnica v03): reemplaza el placeholder de
+     gradiente. Misma caja de 28x28, mismo radio; el color y la
+     transparencia pertenecen al asset, sin filtros CSS. */
+  background-image: url("../logo/cerodos-isotipo-plano.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  flex-shrink: 0;
+}
+
+.brand__word {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+/* Logo real (header): isotipo + wordmark recortados del manual de marca,
+   sin redibujar ni recolorear (ver assets/logo/README.txt). El footer
+   sigue usando el placeholder .brand__mark/.brand__word de arriba — no
+   se tocó, queda pendiente de un reemplazo aparte. width:auto en ambos
+   preserva la proporción original de cada recorte a partir de sus
+   atributos width/height nativos: no hay deformación en ningún tamaño. */
+.brand__isotipo {
+  height: 28px;
+  width: auto;
+}
+
+.brand__wordmark {
+  height: 20px;
+  width: auto;
+}
+
+@media (max-width: 640px) {
+  .brand__isotipo {
+    height: 24px;
+  }
+
+  .brand__wordmark {
+    height: 17px;
+  }
+}
+
+.main-nav__list {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.main-nav__list a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.main-nav__list a:hover,
+.main-nav__list a:focus-visible {
+  color: var(--color-graphite);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  cursor: pointer;
+}
+
+.nav-toggle__bar {
+  width: 18px;
+  height: 2px;
+  margin-inline: auto;
+  background: var(--color-graphite);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobile-nav {
+  display: none;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-white);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--transition-base);
+}
+
+.mobile-nav[data-state="open"] {
+  max-height: 400px;
+}
+
+.mobile-nav__list {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4) var(--space-5);
+  gap: var(--space-4);
+}
+
+/* Mismo eje horizontal que .container: por debajo de 640px el body ya
+   usa 16px de padding-inline (ver regla de .container más abajo); el
+   menú móvil se mantenía en 24px, generando un corrimiento de 8px entre
+   el contenido y el menú. */
+@media (max-width: 640px) {
+  .mobile-nav__list {
+    padding-inline: var(--space-4);
+  }
+}
+
+.mobile-nav__list a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-graphite);
+}
+
+.mobile-nav__list .btn {
+  width: fit-content;
+}
+
+/* ---------- 5. Secciones ---------- */
+
+/* Hero */
+.problems {
+  background: var(--color-bg-alt);
+}
+
+.problem-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-7);
+}
+
+.problem-item {
+  text-align: center;
+  padding-inline: var(--space-4);
+}
+
+.problem-item + .problem-item {
+  border-left: 1px solid var(--color-border);
+}
+
+.problem-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-blue-50);
+  color: var(--color-blue);
+  margin-bottom: var(--space-4);
+}
+
+.problem-item__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.problem-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-2);
+}
+
+.problem-item p {
+  color: var(--color-text-muted);
+  font-size: 0.94rem;
+  margin: 0;
+}
+
+/* Productos */
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.product-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Padding de .product-card__body: ver versión mobile-first junto a
+   .products__grid--four, más abajo (bloque "Sitio multipágina"). */
+
+.product-card__eyebrow {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-2);
+}
+
+.product-card--blue .product-card__eyebrow {
+  color: var(--color-blue);
+}
+
+.product-card--green .product-card__eyebrow {
+  color: var(--color-green-600);
+}
+
+.product-card--neutral .product-card__eyebrow {
+  color: var(--color-text-muted);
+}
+
+.product-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-2);
+}
+
+.product-card__text {
+  color: var(--color-text-muted);
+  font-size: 0.94rem;
+}
+
+.product-card__visual {
+  margin-top: auto;
+  border-top: 1px solid var(--color-border);
+}
+
+.product-card__visual--placeholder {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-light);
+  background: var(--color-bg-alt);
+}
+
+.product-card__visual--placeholder svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* CRM inmobiliario */
+.real-estate {
+  background: var(--color-graphite);
+  color: var(--color-white);
+}
+
+.real-estate__intro {
+  max-width: 62ch;
+  margin: 0 auto var(--space-7);
+  text-align: center;
+}
+
+.real-estate__intro h2 {
+  color: var(--color-white);
+  margin-top: var(--space-3);
+}
+
+.real-estate__intro p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.real-estate__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-7);
+}
+
+.re-block {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  transition: transform var(--transition-base), background-color var(--transition-base);
+  /* Mobile: ícono a la izquierda, mismo patrón que .need y
+     .feature-grid--compact .feature (ver ese comentario). Se restaura el
+     apilado original desde 641px, cuando .real-estate__grid ya es 2
+     columnas y el ícono arriba del título vuelve a leerse bien. */
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: var(--space-3);
+  row-gap: 2px;
+  align-items: start;
+}
+
+.re-block:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.re-block__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(37, 99, 235, 0.25);
+  color: var(--color-white);
+  margin-bottom: 0;
+  grid-row: 1 / -1;
+  grid-column: 1;
+}
+
+.re-block__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.re-block h3 {
+  color: var(--color-white);
+  font-size: 1.05rem;
+  grid-column: 2;
+}
+
+.re-block p {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.88rem;
+  grid-column: 2;
+}
+
+@media (min-width: 641px) {
+  .re-block {
+    display: block;
+  }
+
+  .re-block__icon {
+    margin-bottom: var(--space-3);
+  }
+}
+
+.re-highlights {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  max-width: 640px;
+  margin: 0 auto var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+
+.re-highlights__item {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-green);
+}
+
+.re-highlights__divider {
+  width: 1px;
+  height: 1em;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.re-mock {
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.re-mock__body {
+  padding: var(--space-5);
+  background: var(--color-bg-alt);
+}
+
+.re-mock__property {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.re-mock__thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  background: var(--color-gray-light);
+  flex-shrink: 0;
+  /* Miniatura decorativa genérica (símbolo de inmueble); caja existente
+     de 56×56px sin cambios. Conserva el fondo de respaldo anterior. */
+  background-image: url("../graphics/cerodos-inmobiliarias-miniatura-v02.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 56px 56px;
+}
+
+.re-mock__name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0;
+  color: var(--color-graphite);
+}
+
+.re-mock__price {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.re-mock__funnel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.re-mock__stage {
+  display: inline-block;
+  background: var(--color-gray-light);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+/* Demo del agente */
+.demo__inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.demo__disclaimer {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.agent-demo__messages {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 160px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: var(--color-bg-alt);
+}
+
+.agent-demo__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Utilidad conservada de la antigua página de Precios (retirada): botón
+   ghost para fondos oscuros. Sigue en uso potencial en cualquier bloque
+   sobre fondo `--color-graphite`. */
+.btn--ghost-inverse {
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn--ghost-inverse:hover,
+.btn--ghost-inverse:focus-visible {
+  border-color: var(--color-white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Bloque comercial de producto (precio + CTA final) ----------
+   Reemplaza a la página precios/index.html (retirada): cada producto
+   muestra su propio precio dentro de su propio cta-band final, en vez de
+   mandar a una página aparte. Vive DENTRO de .cta-band__inner, antes del
+   H2/CTA existente — no es una sección nueva, no duplica el CTA.
+   No reutiliza .price-card ni la grilla de precios (ambas retiradas). */
+.product-commercial {
+  text-align: left;
+  max-width: 360px;
+  margin: 0 auto var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-commercial__pricing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.product-commercial__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.product-commercial__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.product-commercial__amount {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--color-graphite);
+}
+
+/* A partir de 400px los montos más largos (ej. "ARS 1.968.000") entran
+   en una sola línea con el tamaño completo. */
+@media (min-width: 400px) {
+  .product-commercial__amount {
+    font-size: 1.3rem;
+  }
+}
+
+.product-commercial__includes {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-blue);
+  margin: 0 0 var(--space-3);
+}
+
+/* Cómo empezamos */
+.steps__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.steps__item {
+  text-align: center;
+  padding: var(--space-5);
+}
+
+.steps__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-blue);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: var(--space-3);
+}
+
+.steps__item p {
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Caso real */
+.case-study {
+  background: var(--color-bg-alt);
+}
+
+.case-study__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.case-study__meta {
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.case-study__proof {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.case-study__proof li + li {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.case-study__proof h3 {
+  font-size: 1rem;
+  margin-bottom: var(--space-1);
+}
+
+.case-study__proof p {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* Mockup del caso real: una línea de WhatsApp como apoyo + estados del
+   sistema. Deliberadamente distinto del patrón .mini-chat usado en el
+   hero y en Agentes, para no repetir la misma conversación completa. */
+.case-mock {
+  padding: var(--space-5);
+  background: var(--color-bg-alt);
+}
+
+.case-mock__message {
+  margin: 0 0 var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.case-mock__status {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-graphite);
+}
+
+.case-mock__status li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.case-mock__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-green);
+  flex-shrink: 0;
+}
+
+/* CTA final */
+.final-cta__inner {
+  max-width: 720px;
+  text-align: center;
+}
+
+.final-cta__inner > p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-6);
+}
+
+.final-cta__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  text-align: left;
+  background: var(--color-bg-alt);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-gray-light);
+  background: var(--color-white);
+  resize: vertical;
+}
+
+.final-cta__actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: flex-start;
+  margin-top: var(--space-2);
+}
+
+.form-note {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-green-600);
+  min-height: 1.2em;
+  margin: 0;
+}
+
+/* ---------- 6. Footer ---------- */
+.site-footer {
+  background: var(--color-graphite);
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: var(--space-8);
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--space-6);
+  padding-bottom: var(--space-7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer .brand {
+  color: var(--color-white);
+}
+
+.site-footer__brand p {
+  margin-top: var(--space-3);
+  font-size: 0.9rem;
+}
+
+.site-footer__nav h3,
+.site-footer__contact h3 {
+  color: var(--color-white);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-3);
+}
+
+.site-footer__nav ul {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.site-footer__nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+}
+
+.site-footer__nav a:hover,
+.site-footer__nav a:focus-visible {
+  color: var(--color-white);
+}
+
+.site-footer__contact p {
+  font-size: 0.9rem;
+  margin: 0 0 var(--space-2);
+}
+
+.site-footer__legal {
+  padding-block: var(--space-5);
+  font-size: 0.82rem;
+}
+
+/* ---------- 7. Animaciones de entrada y accesibilidad ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-delay="1"] {
+  transition-delay: 90ms;
+}
+
+[data-reveal-delay="2"] {
+  transition-delay: 180ms;
+}
+
+[data-reveal-delay="3"] {
+  transition-delay: 270ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal],
+  .flow__step {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .real-estate__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .main-nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  .steps__list {
+    grid-template-columns: 1fr;
+  }
+
+  .demo__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header__actions .btn--sm {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding-block: var(--space-8);
+  }
+
+  .problem-list,
+  .products__grid,
+  .real-estate__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-item + .problem-item {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-5);
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .final-cta__form {
+    grid-template-columns: 1fr;
+    padding: var(--space-5);
+  }
+
+  .re-highlights {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .re-highlights__divider {
+    display: none;
+  }
+
+  .container {
+    padding-inline: var(--space-4);
+  }
+}
+
+/* =====================================================================
+   8. SITIO MULTIPÁGINA — componentes nuevos (MOBILE-FIRST)
+   Todo este bloque está escrito mobile-first: los estilos base son los de
+   celular y se amplían con @media (min-width: …). Los componentes
+   heredados de la landing v1 (bloques 1-7, más arriba) siguen siendo
+   desktop-first y se migran solo cuando hace falta tocarlos.
+   Breakpoints de referencia del proyecto: 640 / 860 / 1024.
+   ===================================================================== */
+
+/* ---------- Utilidades ---------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Ritmo vertical de las páginas nuevas. Gana por especificidad sobre la
+   regla genérica `section { padding-block: var(--space-9) }` heredada. */
+.section-block {
+  padding-block: var(--space-7);
+}
+
+/* Modificadores puntuales para acercar dos .section-block contiguas sin
+   tocar el ritmo vertical genérico del resto del sitio (hoy solo se usan
+   en Probá Cerodos, entre el hero y el panel de la demo). */
+.section-block--flush-top {
+  padding-top: var(--space-4);
+}
+
+.section-block--flush-bottom {
+  padding-bottom: var(--space-4);
+}
+
+.container.narrow {
+  max-width: 720px;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+.note {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.note--block {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+}
+
+/* Acerca el aviso de demo al panel interactivo en Probá Cerodos.
+   Escapado por id: Precios también usa .note--block y no debe cambiar. */
+#demo .note--block {
+  margin-bottom: var(--space-4);
+}
+
+.prose h3 {
+  margin-top: var(--space-6);
+  font-size: 1.15rem;
+}
+
+.prose h3:first-child {
+  margin-top: 0;
+}
+
+.prose p {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 860px) {
+  .section-block {
+    padding-block: var(--space-8);
+  }
+}
+
+/* ---------- Navegación: página actual ---------- */
+.main-nav__list a[aria-current],
+.mobile-nav__list a[aria-current] {
+  color: var(--color-blue);
+}
+
+.main-nav__list a[aria-current] {
+  border-bottom: 2px solid var(--color-blue);
+  padding-bottom: 2px;
+}
+
+/* Targets táctiles del menú móvil (mínimo ~44px) */
+.mobile-nav__list a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Target táctil del botón de menú: mínimo 44px (venía de 40px en la v1). */
+.nav-toggle {
+  width: 44px;
+  height: 44px;
+}
+
+/* ---------- Hero de página interna ---------- */
+.page-hero h1 {
+  font-size: clamp(1.9rem, 1.4rem + 2.2vw, 2.8rem);
+  margin-bottom: var(--space-4);
+  max-width: 20ch;
+}
+
+.page-hero__lead {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 56ch;
+  margin: 0;
+}
+
+/* ---------- HOME 1: hero ---------- */
+.home-hero__copy h1 {
+  font-size: clamp(2rem, 1.5rem + 2.6vw, 3rem);
+  margin-bottom: var(--space-4);
+}
+
+.home-hero__text {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 52ch;
+  margin-bottom: var(--space-5);
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* En mobile el hero es solo texto: la visual conceptual no se muestra. */
+.home-hero__visual {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .home-hero__inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .home-hero__visual {
+    display: block;
+  }
+}
+
+/* ---------- Visual conceptual de ecosistema (solo desktop) ---------- */
+.eco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.eco__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.eco__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.eco__chip {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.8rem;
+}
+
+.eco__chip--out {
+  color: var(--color-green-600);
+  border-color: var(--color-green-50);
+  background: var(--color-green-50);
+}
+
+.eco__flow {
+  width: 1px;
+  height: 22px;
+  background: var(--color-border);
+  position: relative;
+}
+
+.eco__flow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.eco__core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--color-graphite);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.eco__core-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--color-white);
+}
+
+.eco__core-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* ---------- HOME 3: filas de producto ---------- */
+.product-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  text-decoration: none;
+  color: inherit;
+  border-top: 1px solid var(--color-border);
+  transition: background-color var(--transition-fast);
+}
+
+.product-row:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-row:hover,
+.product-row:focus-visible,
+.product-row:active {
+  background: var(--color-bg-alt);
+}
+
+.product-row__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-blue-50);
+  color: var(--color-blue);
+}
+
+.product-row__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.product-row__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.product-row__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-graphite);
+}
+
+.product-row__sub {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--color-blue);
+}
+
+.product-row__text {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.product-row__arrow {
+  align-self: center;
+  color: var(--color-blue);
+  flex-shrink: 0;
+}
+
+.products-home__more {
+  margin: var(--space-5) 0 0;
+}
+
+@media (min-width: 860px) {
+  .product-rows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  .product-row {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+  }
+
+  .product-row:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+/* ---------- Franja de capacidades del hero ----------
+   Reemplaza a la sección "Qué hacemos" independiente: los tres conceptos
+   viven ahora dentro del hero. Mobile: tres filas compactas con separador
+   sutil, sin cards ni íconos grandes. Desde 860px: tres columnas al pie
+   del hero, ocupando todo el ancho de la grilla. */
+.hero-caps {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.hero-caps__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-caps__item strong {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-graphite);
+}
+
+.hero-caps__item span {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 640px) {
+  .hero-caps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+  }
+
+  .hero-caps__item {
+    padding-block: 0;
+    border-bottom: none;
+  }
+}
+
+@media (min-width: 860px) {
+  .hero-caps {
+    grid-column: 1 / -1;
+    gap: var(--space-6);
+    padding-top: var(--space-6);
+  }
+}
+
+/* ---------- Filas de producto: densidad en mobile ----------
+   En mobile la fila muestra solo ícono + nombre + subtítulo + flecha: la
+   frase descriptiva de cada producto vive en su página. Desde 640px, donde
+   hay espacio, la frase vuelve a aparecer. El alto de la fila se mantiene
+   cómodo para el dedo (no se comprime el padding ni la tipografía). */
+.product-row__text {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .product-row__text {
+    display: block;
+  }
+
+  .product-row {
+    align-items: flex-start;
+  }
+}
+
+/* ---------- HOME 4: diferencial + probá ---------- */
+.edge {
+  background: var(--color-bg-alt);
+}
+
+.edge__copy h2 {
+  font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2rem);
+  max-width: 24ch;
+}
+
+.edge__copy p {
+  color: var(--color-text-muted);
+  max-width: 56ch;
+  margin: 0;
+}
+
+.edge__try {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.edge__try-text {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-graphite);
+}
+
+@media (min-width: 860px) {
+  .edge__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .edge__try {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    border-left: 1px solid var(--color-border);
+    padding-left: var(--space-6);
+  }
+}
+
+/* ---------- HOME 5: ejemplo real + cierre ---------- */
+.closing__case h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.closing__case p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.closing__cta {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.closing__question {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--color-graphite);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 860px) {
+  .closing__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .closing__cta {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    border-left: 1px solid var(--color-border);
+    padding-left: var(--space-6);
+  }
+}
+
+/* ---------- Migración a mobile-first: lista de tres conceptos ----------
+   .problem-list/.problem-item vienen de la landing v1 y estaban pensados
+   para tres columnas en desktop: al apilarse en mobile, el gap horizontal
+   de 48px se sumaba al padding-top de 24px del separador, dando el doble
+   de aire del necesario entre ítems. Se corrige solo el caso apilado; en
+   desktop el componente queda exactamente igual que antes. */
+.problem-list {
+  row-gap: var(--space-5);
+}
+
+@media (min-width: 641px) {
+  .problem-list {
+    row-gap: var(--space-7);
+  }
+}
+
+@media (max-width: 640px) {
+  .problem-item + .problem-item {
+    padding-top: var(--space-4);
+  }
+}
+
+/* Separador del cierre: mismo criterio, aire proporcionado al bloque. */
+.closing__cta {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+}
+
+/* ---------- Grilla de características (páginas internas) ---------- */
+.feature-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.feature {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.feature h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.feature p {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.feature__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-blue-50);
+  color: var(--color-blue);
+}
+
+.feature__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 640px) {
+  .feature-grid--2,
+  .feature-grid--3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .feature-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* .feature-grid--compact: variante mobile-only para listados largos de
+   características (hoy solo Agentes, 8 ítems). En mobile pasa de tarjetas
+   apiladas a filas divididas, icono a la izquierda, sin tocar .feature ni
+   .feature-grid base (Conversa, CRM Integrado y La Ribera no llevan esta
+   clase y no se ven afectadas). Desde 640px se restaura exactamente el
+   comportamiento original de .feature (grid de tarjetas en columnas). */
+.feature-grid--compact {
+  gap: 0;
+}
+
+.feature-grid--compact .feature {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: var(--space-3);
+  row-gap: 2px;
+  align-items: start;
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.feature-grid--compact .feature:first-child {
+  border-top: none;
+}
+
+.feature-grid--compact .feature__icon {
+  grid-row: 1 / 3;
+  grid-column: 1;
+}
+
+.feature-grid--compact .feature h3,
+.feature-grid--compact .feature p {
+  grid-column: 2;
+}
+
+@media (min-width: 640px) {
+  .feature-grid--compact {
+    gap: var(--space-5);
+  }
+
+  .feature-grid--compact .feature {
+    display: grid;
+    grid-template-columns: none;
+    column-gap: 0;
+    row-gap: var(--space-2);
+    padding-block: 0;
+    border-top: none;
+  }
+
+  .feature-grid--compact .feature__icon,
+  .feature-grid--compact .feature h3,
+  .feature-grid--compact .feature p {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+/* ---------- Sección partida (copy + visual) ---------- */
+.split__visual {
+  margin-top: var(--space-6);
+}
+
+.split__copy h2 {
+  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 1.9rem);
+  margin-bottom: var(--space-3);
+}
+
+.split__copy p {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 860px) {
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .split__visual {
+    margin-top: 0;
+  }
+}
+
+/* ---------- Lista con tildes ---------- */
+.tick-list {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.tick-list li {
+  position: relative;
+  padding-left: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: 0.94rem;
+}
+
+.tick-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-blue);
+}
+
+/* ---------- Panel simple de estados ---------- */
+.panel {
+  padding: var(--space-5);
+  background: var(--color-bg-alt);
+}
+
+.panel--framed {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.panel__list {
+  display: grid;
+  gap: var(--space-3);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-graphite);
+}
+
+.panel__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.panel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-green);
+  flex-shrink: 0;
+}
+
+/* ---------- Pipeline de integración ---------- */
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--color-bg-alt);
+}
+
+.pipeline__node {
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-align: center;
+  display: grid;
+  gap: 2px;
+}
+
+.pipeline__node--core {
+  background: var(--color-graphite);
+  border-color: var(--color-graphite);
+}
+
+.pipeline__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-graphite);
+}
+
+.pipeline__node--core .pipeline__name {
+  color: var(--color-white);
+}
+
+.pipeline__state {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.pipeline__node--core .pipeline__state {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.pipeline__arrow {
+  width: 1px;
+  height: 18px;
+  background: var(--color-border);
+  position: relative;
+}
+
+.pipeline__arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* ---------- Soluciones: necesidades ---------- */
+.need-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.need {
+  /* Mobile: ícono a la izquierda, mismo patrón que .re-block y
+     .feature-grid--compact .feature. Se restaura el apilado original
+     desde 860px, cuando .need-grid ya es de 2 columnas. */
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: var(--space-3);
+  row-gap: 2px;
+  align-items: start;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.need h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  grid-column: 2;
+}
+
+.need p {
+  color: var(--color-text-muted);
+  font-size: 0.94rem;
+  margin: 0;
+  grid-column: 2;
+}
+
+.need .text-link {
+  grid-column: 2;
+  margin-top: var(--space-2);
+}
+
+.need__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-blue-50);
+  color: var(--color-blue);
+  grid-row: 1 / -1;
+  grid-column: 1;
+}
+
+.need__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 860px) {
+  .need-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
+  }
+
+  .need {
+    grid-template-columns: none;
+    column-gap: 0;
+    row-gap: var(--space-2);
+  }
+
+  .need__icon,
+  .need h3,
+  .need p,
+  .need .text-link {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .need .text-link {
+    margin-top: 0;
+  }
+}
+
+/* ---------- Tarjeta de industria / caso ---------- */
+.industry-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.industry-card:hover,
+.industry-card:focus-visible {
+  border-color: var(--color-blue);
+  background: var(--color-bg-alt);
+}
+
+.industry-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-blue-50);
+  color: var(--color-blue);
+}
+
+.industry-card__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.industry-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.industry-card__eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.industry-card__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-graphite);
+}
+
+.industry-card__text {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.industry-card__arrow {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+/* ---------- Otros productos ---------- */
+.other-products {
+  background: var(--color-bg-alt);
+}
+
+.other-products__list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.other-products__item {
+  display: grid;
+  gap: 2px;
+  padding: var(--space-4);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: border-color var(--transition-fast);
+}
+
+.other-products__item:hover,
+.other-products__item:focus-visible {
+  border-color: var(--color-blue);
+}
+
+.other-products__name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-graphite);
+}
+
+.other-products__sub {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 860px) {
+  .other-products__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Banda de CTA ---------- */
+.cta-band {
+  background: var(--color-bg-alt);
+}
+
+.cta-band__inner {
+  text-align: center;
+}
+
+.cta-band__inner h2 {
+  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 1.9rem);
+  max-width: 26ch;
+  margin-inline: auto;
+}
+
+.cta-band__inner p {
+  color: var(--color-text-muted);
+  max-width: 52ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+}
+
+.cta-band__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* ---------- Capturas pendientes (casos) ---------- */
+.shots {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.shot {
+  margin: 0;
+}
+
+.shot__frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  background: var(--color-bg-alt);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.shot__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.shot figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 860px) {
+  .shots {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* Índice de productos: son cuatro, así que en desktop van 2x2 y no
+   3+1 huérfano como quedaría con la grilla de tres de la landing v1. */
+.products__grid--four {
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 860px) {
+  .products__grid--four {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* .product-card viene de la landing v1 (desktop-first): en mobile su
+   padding original quedaba pensado para una sola tarjeta grande, no para
+   cuatro apiladas en el índice de productos. Se aliviana solo en mobile;
+   desde 860px, donde la grilla pasa a 2x2, se restaura el padding original. */
+.product-card__body {
+  padding: var(--space-5) var(--space-5) var(--space-4);
+}
+
+.product-card__visual .panel {
+  padding: var(--space-4);
+}
+
+@media (min-width: 860px) {
+  .product-card__body {
+    padding: var(--space-6) var(--space-6) var(--space-5);
+  }
+
+  .product-card__visual .panel {
+    padding: var(--space-5);
+  }
+}
+
+.shots + .note {
+  display: block;
+  margin-top: var(--space-4);
+}
+
+/* ---------- Pasos: variante de cuatro ---------- */
+@media (min-width: 860px) {
+  .steps__list--four {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- Footer compacto (reemplaza al footer de 4 columnas) ---------- */
+.site-footer {
+  padding-top: var(--space-7);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-bottom: var(--space-5);
+  grid-template-columns: none;
+}
+
+.site-footer__brand p {
+  margin-top: var(--space-2);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.site-footer__links a {
+  text-decoration: none;
+  font-size: 0.92rem;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.site-footer__links a:hover,
+.site-footer__links a:focus-visible {
+  color: var(--color-white);
+}
+
+.site-footer__legal {
+  padding-block: var(--space-4);
+}
+
+@media (min-width: 860px) {
+  .site-footer__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+}
+
+
+/* =====================================================================
+   INTRO DE MARCA (overlay temporal) — MOBILE-FIRST
+   Overlay superpuesto sobre la Home, fuera del flujo: position:fixed, así
+   que NO suma altura al documento. Se desvanece solo, por animación CSS
+   pura: no hay timers, ni listeners de scroll, ni una línea de JavaScript.
+   Se reproduce en cada carga de la Home.
+   Bloque completo y aislado: ninguna otra regla del archivo depende de él.
+   ===================================================================== */
+.brand-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 150; /* sobre el header (100), bajo el skip-link (200) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: var(--color-graphite);
+  pointer-events: none; /* nunca intercepta toques ni scroll */
+  animation: brand-intro-out 1200ms ease forwards;
+}
+
+.brand-intro__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+  /* El logo entra como una sola unidad: isotipo y wordmark comparten esta
+     animación, nunca se animan por separado. */
+  opacity: 0;
+  animation: brand-intro-in 300ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.brand-intro__isotipo,
+.brand-intro__wordmark {
+  width: auto;
+  max-width: 100%;
+}
+
+.brand-intro__isotipo {
+  height: 84px;
+}
+
+.brand-intro__wordmark {
+  height: 32px;
+}
+
+/* El claim no aparece en pantallas chicas: en 900ms no se alcanza a leer. */
+.brand-intro__claim {
+  display: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+@keyframes brand-intro-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes brand-intro-claim-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mobile: 1200ms totales — entrada 0-300ms, marca estable 300-804ms,
+   fundido 804-1200ms. */
+@keyframes brand-intro-out {
+  0%,
+  67% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Desde 860px (mismo breakpoint donde el sitio pasa a layout de escritorio)
+   la intro puede permitirse el claim y algo más de presencia: 1500ms
+   totales — logo 0-320ms, claim 250-600ms, composición estable 600-1050ms,
+   fundido 1050-1500ms. */
+@keyframes brand-intro-out-wide {
+  0%,
+  70% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 641px) {
+  .brand-intro__isotipo {
+    height: 112px;
+  }
+
+  .brand-intro__wordmark {
+    height: 42px;
+  }
+}
+
+@media (min-width: 860px) {
+  .brand-intro {
+    animation-name: brand-intro-out-wide;
+    animation-duration: 1500ms;
+  }
+
+  .brand-intro__inner {
+    gap: var(--space-5);
+    animation-duration: 320ms;
+  }
+
+  .brand-intro__claim {
+    display: block;
+    opacity: 0;
+    /* Solapado con la entrada del logo para no alargar la intro. */
+    animation: brand-intro-claim-in 350ms cubic-bezier(0.22, 1, 0.36, 1) 250ms forwards;
+  }
+}
+
+/* Movimiento reducido: no hay intro. La persona entra directo a la Home. */
+@media (prefers-reduced-motion: reduce) {
+  .brand-intro {
+    display: none;
+  }
+}
+
+@media print {
+  .brand-intro {
+    display: none;
+  }
+}

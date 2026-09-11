@@ -1,0 +1,8 @@
+/* Acceso compacto al caso, entre la solución y el CTA existente. */
+.re-case-section{padding-block:24px;}
+.re-case-link{display:flex;align-items:center;gap:20px;padding:20px;border:1px solid var(--color-border);border-radius:16px;background:#fff;text-decoration:none;color:var(--color-graphite);}
+.re-case-link__thumb{width:120px;height:88px;object-fit:contain;flex:none;background:#f8fafc;border-radius:8px;}
+.re-case-link__copy{min-width:0;}.re-case-link__label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:4px;}
+.re-case-link h2{font-size:1.15rem;margin:0 0 6px;}.re-case-link p{font-size:.9rem;line-height:1.5;color:var(--color-text-muted);margin:0 0 8px;}.re-case-link__action{font-size:.88rem;font-weight:600;color:var(--color-blue);}
+.re-case-link:hover{border-color:var(--color-blue);}.re-case-link:focus-visible{outline:3px solid var(--color-blue);outline-offset:4px;}
+@media(max-width:480px){.re-case-link{gap:12px;padding:16px;align-items:flex-start;}.re-case-link__thumb{width:64px;height:52px;margin-top:4px;}}

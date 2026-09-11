@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cerodos Agentes — Agentes Inteligentes</title>
+  <meta name="description" content="Agentes que atienden 24/7, califican oportunidades, agendan, hacen seguimiento y derivan al equipo usando la información real de tu empresa." />
+
+  <!-- Tipografías de marca: Manrope (títulos) e Inter (texto/interfaz) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="../assets/logo/cerodos-favicon-16.png" type="image/png" sizes="16x16" />
+  <link rel="icon" href="../assets/logo/cerodos-favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../assets/logo/cerodos-favicon-64.png" type="image/png" sizes="64x64" />
+  <link rel="stylesheet" href="../assets/css/cerodos.css" />
+
+<link rel="stylesheet" href="../assets/css/precios-v07.css" />
+<link rel="stylesheet" href="../assets/css/fondos-v08.css" />
+<style>main#main{--fondo-v08:url('../fondos-v12/agentes.svg')}</style>
+<link rel="stylesheet" href="../assets/css/whatsapp.css">
+<script defer src="../assets/js/whatsapp-config.js"></script>
+<script defer src="../assets/js/whatsapp.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <!-- ============ HEADER (compartido — ver _partials.html) ============ -->
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Cerodos — inicio">
+        <img class="brand__isotipo" src="../assets/logo/cerodos-isotipo-caja-205x130.png" alt="" width="205" height="130" />
+        <img class="brand__wordmark" src="../assets/logo/manual-extract-wordmark-dark.png" alt="" width="117" height="27" />
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="main-nav__list">
+          <li><a href="../productos/index.html" aria-current="true">Productos</a></li>
+          <li><a href="../soluciones/index.html">Soluciones</a></li>
+          <li><a href="../probar-cerodos/index.html">Probá Cerodos</a></li>
+          <li><a href="../nosotros/index.html">Nosotros</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a class="btn btn--primary btn--sm" href="#whatsapp" data-whatsapp>Hablemos</a>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Abrir menú de navegación"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <div class="mobile-nav" id="mobile-nav" data-state="closed">
+      <ul class="mobile-nav__list">
+          <li><a href="../productos/index.html" aria-current="true">Productos</a></li>
+          <li><a href="../soluciones/index.html">Soluciones</a></li>
+          <li><a href="../probar-cerodos/index.html">Probá Cerodos</a></li>
+          <li><a href="../nosotros/index.html">Nosotros</a></li>
+          <li><a class="btn btn--primary btn--lg" href="#whatsapp" data-whatsapp>Hablemos</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <!-- ============ HERO DE PÁGINA ============ -->
+    <section class="section-block page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Cerodos Agentes · Agentes Inteligentes</p>
+        <h1 id="page-title" data-reveal>Agentes que atienden y trabajan usando información de tu empresa.</h1>
+        <p class="page-hero__lead">Un agente responde con los datos reales de tu negocio, ordena lo que llega y le pasa a una persona lo que de verdad lo necesita.</p>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO TRABAJA ============ -->
+    <section class="section-block" aria-labelledby="flow-title">
+      <div class="container split">
+        <div class="split__copy" data-reveal>
+          <h2 id="flow-title">Trabaja con la información de tu empresa</h2>
+          <p>
+            El agente responde con los datos que ya existen en tu operación. Cuando
+            una consulta necesita a una persona, la deriva al equipo con el contexto
+            de la conversación.
+          </p>
+          <p class="note">La IA propone. La persona decide.</p>
+        </div>
+        <div class="split__visual" data-reveal data-reveal-delay="1" aria-hidden="true">
+          <div class="device-frame">
+            <div class="device-frame__bar">
+              <span class="dot dot--blue"></span><span class="dot dot--green"></span><span class="dot dot--gray"></span>
+              <span class="device-frame__title">Cerodos · Conversaciones</span>
+            </div>
+            <div class="flow" id="hero-flow">
+              <div class="flow__step" data-step="1">
+                <span class="flow__badge flow__badge--incoming">WhatsApp</span>
+                <p class="flow__bubble flow__bubble--in">Hola, ¿tienen disponibilidad y precio?</p>
+              </div>
+              <div class="flow__step" data-step="2">
+                <p class="flow__bubble flow__bubble--out">
+                  Sí. Te muestro las opciones disponibles y te ayudo a encontrar la que mejor encaja.
+                </p>
+                <span class="flow__badge flow__badge--agent">Agente Cerodos · respuesta enviada</span>
+              </div>
+              <div class="flow__step flow__step--tags" data-step="3">
+                <span class="flow__tag flow__tag--success">Lead registrado</span>
+                <span class="flow__tag flow__tag--neutral">Interés detectado</span>
+                <span class="flow__tag flow__tag--info">Seguimiento programado</span>
+                <span class="flow__tag flow__tag--neutral">Derivación al equipo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="features-title">
+      <div class="container">
+        <h2 id="features-title" class="section-title" data-reveal>Qué puede hacer un agente</h2>
+        <div class="feature-grid feature-grid--2 feature-grid--compact">
+          <article class="feature" data-reveal>
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <h3>Atención 24/7</h3>
+            <p>Responde fuera de horario, los fines de semana y cuando el equipo está ocupado.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="1">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11M10 20V4M16 20v-6M2 20h20"/></svg></span>
+            <h3>Ventas</h3>
+            <p>Acompaña la consulta comercial hasta donde puede y deja el resto preparado.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="2">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg></span>
+            <h3>Calificación de oportunidades</h3>
+            <p>Distingue una consulta general de alguien listo para avanzar.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span>
+            <h3>Agenda</h3>
+            <p>Coordina turnos, visitas y reuniones según la disponibilidad real.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.3-3 8-7 9.5-4-1.5-7-5.2-7-9.5V6l7-3Z"/></svg></span>
+            <h3>Soporte</h3>
+            <p>Resuelve las preguntas repetidas y libera al equipo para lo demás.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg></span>
+            <h3>Cobranzas</h3>
+            <p>Envía recordatorios de pago y hace el seguimiento que nadie llega a hacer.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 11.2A3.2 3.2 0 1 0 16 4.8"/><path d="M17.5 20a6 6 0 0 0-3-5.2"/></svg></span>
+            <h3>Derivación</h3>
+            <p>Cuando hace falta una persona, pasa la conversación con todo el contexto.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg></span>
+            <h3>Información real del negocio</h3>
+            <p>Responde con los datos de tu empresa, no con generalidades.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRECIO + CTA ============ -->
+    <section class="section-block cta-band" aria-labelledby="cta-title">
+      <div class="container cta-band__inner" data-reveal>
+        <div class="product-commercial">
+          <p class="eyebrow">Precio</p>
+          <div class="product-commercial__pricing">
+            <div class="product-commercial__row">
+              <span class="product-commercial__label">Implementación</span>
+              <span class="product-commercial__amount">ARS 861.000</span>
+            </div>
+            <div class="product-commercial__row">
+              <span class="product-commercial__label">Mensual</span>
+              <span class="product-commercial__amount">ARS 442.000</span>
+            </div>
+          </div>
+          <p class="product-commercial__includes">Incluye Conversa + 1 agente inteligente</p>
+          <p class="note">Valores de referencia sujetos a confirmación según alcance e implementación.</p>
+        </div>
+        <h2 id="cta-title">¿Querés ver uno funcionando?</h2>
+        <p>Hay una demo del agente en el sitio, y podemos mostrarte cómo sería con tu información.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--primary btn--lg" href="../probar-cerodos/index.html">Probá Cerodos</a>
+          <a class="btn btn--ghost btn--lg" href="#whatsapp" data-whatsapp>Hablemos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OTROS PRODUCTOS ============ -->
+    <section class="section-block other-products" aria-labelledby="other-title">
+      <div class="container">
+        <h2 id="other-title" class="section-title" data-reveal>Otros productos</h2>
+        <div class="other-products__list" data-reveal>
+            <a class="other-products__item" href="../productos/conversa.html">
+              <span class="other-products__name">Cerodos Conversa</span>
+              <span class="other-products__sub">CRM Conversacional</span>
+            </a>
+            <a class="other-products__item" href="../productos/crm-integrado.html">
+              <span class="other-products__name">Cerodos CRM Integrado</span>
+              <span class="other-products__sub">Nos conectamos a tu sistema de gestión.</span>
+            </a>
+            <a class="other-products__item" href="../productos/proyectos.html">
+              <span class="other-products__name">Cerodos Proyectos</span>
+              <span class="other-products__sub">Desarrollos con alcance definido.</span>
+            </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ============ FOOTER (compartido — ver _partials.html) ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="brand" href="../index.html" aria-label="Cerodos — inicio">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__word">cerodos</span>
+        </a>
+        <p>Inteligencia que suma capacidad.</p>
+      </div>
+
+      <nav class="site-footer__links" aria-label="Enlaces del pie">
+        <a href="../productos/index.html">Productos</a>
+        <a href="../soluciones/index.html">Soluciones</a>
+        <a href="../nosotros/index.html">Nosotros</a>
+        <a href="../contacto/index.html">Contacto</a>
+      </nav>
+    </div>
+    <div class="container site-footer__legal">
+      <p>&copy; <span id="year"></span> Cerodos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/cerodos.js"></script>
+<a class="wa-floating" href="#whatsapp" data-whatsapp aria-label="Hablemos por WhatsApp" title="Hablemos por WhatsApp"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M26.7 5.3a14 14 0 0 0-22 16.6L2.8 29l7.3-1.9A14 14 0 0 0 26.7 5.3Z"/><path fill="currentColor" d="M11.3 8.7c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.8.1-1.2.6-.4.5-1.5 1.5-1.5 3.6s1.5 4.1 1.7 4.4c.2.3 3 4.7 7.4 6.4 3.7 1.5 4.4 1.2 5.2 1.1.8-.1 2.6-1.1 3-2.1.4-1 .4-1.9.3-2.1-.1-.2-.4-.3-.9-.5l-3-1.4c-.4-.2-.7-.3-1 .2-.3.5-1.1 1.4-1.4 1.7-.3.3-.5.3-1 .1-.5-.2-2-.7-3.7-2.3-1.4-1.2-2.3-2.7-2.5-3.2-.3-.5 0-.7.2-.9l.7-.8c.2-.3.3-.5.4-.8.2-.3.1-.6 0-.8l-1.1-2.5Z"/></svg></a>
+</body>
+</html>

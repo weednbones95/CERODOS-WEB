@@ -1,0 +1,15 @@
+/* Solo la intro existente de Home. Se revela el PNG original; no se redibuja ni deforma. */
+.brand-intro{animation:cerodos-intro-salida 2200ms ease both;}
+.brand-intro__inner{opacity:1;transform:none;animation:none;}
+.brand-intro__isotipo{animation:cerodos-pincelada 1000ms cubic-bezier(.4,0,.2,1) 100ms both;}
+.brand-intro__wordmark{animation:none;clip-path:none;opacity:1;transform:none;}
+@keyframes cerodos-pincelada{
+0%{clip-path:polygon(0 0,0 0,0 100%,0 100%);}
+28%{clip-path:polygon(0 0,36% 0,20% 100%,0 100%);}
+65%{clip-path:polygon(0 0,76% 0,60% 100%,0 100%);}
+100%{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);}
+}
+@keyframes cerodos-intro-salida{0%,76%{opacity:1;visibility:visible;}100%{opacity:0;visibility:hidden;}}
+@media(min-width:860px){.brand-intro__claim{animation:brand-intro-claim-in 300ms ease 1000ms both;}}
+@media(prefers-reduced-motion:reduce){.brand-intro{display:none;}.brand-intro__isotipo,.brand-intro__wordmark,.brand-intro__claim{animation:none;clip-path:none;}}
+@media print{.brand-intro{display:none;}}

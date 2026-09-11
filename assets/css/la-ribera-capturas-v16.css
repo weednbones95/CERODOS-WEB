@@ -1,0 +1,2 @@
+/* Capturas reales: marcos existentes, imágenes completas sin recortes. */
+.shots .shot__frame{border-style:solid;overflow:hidden;}.shots .shot__frame img{display:block;width:100%;height:100%;object-fit:contain;}.shots a.shot__frame{text-decoration:none;}

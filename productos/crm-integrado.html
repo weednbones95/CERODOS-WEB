@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cerodos CRM Integrado — Nos conectamos a tu sistema de gestión</title>
+  <meta name="description" content="Conectamos Cerodos con el ERP, el CRM, las APIs y la agenda que ya usa tu empresa, y automatizamos los procesos entre esos sistemas." />
+
+  <!-- Tipografías de marca: Manrope (títulos) e Inter (texto/interfaz) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="../assets/logo/cerodos-favicon-16.png" type="image/png" sizes="16x16" />
+  <link rel="icon" href="../assets/logo/cerodos-favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="../assets/logo/cerodos-favicon-64.png" type="image/png" sizes="64x64" />
+  <link rel="stylesheet" href="../assets/css/cerodos.css" />
+
+<link rel="stylesheet" href="../assets/css/precios-v07.css" />
+<link rel="stylesheet" href="../assets/css/fondos-v08.css" />
+<style>main#main{--fondo-v08:url('../fondos-v12/crm-integrado.svg')}</style>
+<link rel="stylesheet" href="../assets/css/whatsapp.css">
+<script defer src="../assets/js/whatsapp-config.js"></script>
+<script defer src="../assets/js/whatsapp.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <!-- ============ HEADER (compartido — ver _partials.html) ============ -->
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Cerodos — inicio">
+        <img class="brand__isotipo" src="../assets/logo/cerodos-isotipo-caja-205x130.png" alt="" width="205" height="130" />
+        <img class="brand__wordmark" src="../assets/logo/manual-extract-wordmark-dark.png" alt="" width="117" height="27" />
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="main-nav__list">
+          <li><a href="../productos/index.html" aria-current="true">Productos</a></li>
+          <li><a href="../soluciones/index.html">Soluciones</a></li>
+          <li><a href="../probar-cerodos/index.html">Probá Cerodos</a></li>
+          <li><a href="../nosotros/index.html">Nosotros</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a class="btn btn--primary btn--sm" href="#whatsapp" data-whatsapp>Hablemos</a>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Abrir menú de navegación"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <div class="mobile-nav" id="mobile-nav" data-state="closed">
+      <ul class="mobile-nav__list">
+          <li><a href="../productos/index.html" aria-current="true">Productos</a></li>
+          <li><a href="../soluciones/index.html">Soluciones</a></li>
+          <li><a href="../probar-cerodos/index.html">Probá Cerodos</a></li>
+          <li><a href="../nosotros/index.html">Nosotros</a></li>
+          <li><a class="btn btn--primary btn--lg" href="#whatsapp" data-whatsapp>Hablemos</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <main id="main">
+    <!-- ============ HERO DE PÁGINA ============ -->
+    <section class="section-block page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Cerodos CRM Integrado</p>
+        <h1 id="page-title" data-reveal>Nos conectamos a tu sistema de gestión.</h1>
+        <p class="page-hero__lead">No te pedimos que cambies de sistema. Conectamos Cerodos con las herramientas que ya usás y automatizamos los procesos que hoy pasan de una a otra a mano.</p>
+      </div>
+    </section>
+
+    <!-- ============ QUÉ CONECTAMOS ============ -->
+    <section class="section-block" aria-labelledby="conectar-title">
+      <div class="container split">
+        <div class="split__copy" data-reveal>
+          <h2 id="conectar-title">Qué conectamos</h2>
+          <p>
+            Trabajamos sobre los sistemas que ya tiene tu empresa para que la
+            información deje de estar partida en varios lugares.
+          </p>
+          <ul class="tick-list">
+            <li>ERP</li>
+            <li>CRM</li>
+            <li>APIs de otros sistemas</li>
+            <li>Mercado Pago</li>
+            <li>Agenda</li>
+          </ul>
+        </div>
+        <div class="split__visual" data-reveal data-reveal-delay="1" aria-hidden="true">
+          <div class="device-frame device-frame--compact">
+            <div class="device-frame__bar">
+              <span class="dot dot--blue"></span><span class="dot dot--green"></span><span class="dot dot--gray"></span>
+              <span class="device-frame__title">Cerodos · Integraciones</span>
+            </div>
+            <div class="pipeline">
+              <div class="pipeline__node">
+                <span class="pipeline__name">Sistema de gestión</span>
+                <span class="pipeline__state">Conectado</span>
+              </div>
+              <span class="pipeline__arrow"></span>
+              <div class="pipeline__node pipeline__node--core">
+                <span class="pipeline__name">Cerodos</span>
+                <span class="pipeline__state">Proceso automatizado</span>
+              </div>
+              <span class="pipeline__arrow"></span>
+              <div class="pipeline__node">
+                <span class="pipeline__name">Equipo</span>
+                <span class="pipeline__state">Aviso enviado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="features-title">
+      <div class="container">
+        <h2 id="features-title" class="section-title" data-reveal>Qué automatizamos</h2>
+        <div class="feature-grid feature-grid--3 feature-grid--compact">
+          <article class="feature" data-reveal>
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1.5"/><rect x="15" y="15" width="6" height="6" rx="1.5"/><path d="M9 6h4a2 2 0 0 1 2 2v10"/></svg></span>
+            <h3>Procesos internos</h3>
+            <p>Los pasos que hoy alguien hace a mano entre dos sistemas pasan a ejecutarse solos.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="1">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg></span>
+            <h3>Aprobaciones</h3>
+            <p>Un pedido, un presupuesto o un descuento sigue su circuito sin quedar frenado en un mail.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="2">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <h3>Recordatorios</h3>
+            <p>Avisos automáticos cuando algo vence, falta o está esperando respuesta.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
+            <h3>Seguimientos</h3>
+            <p>El estado de cada cosa queda registrado y visible, no en la cabeza de una persona.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></span>
+            <h3>Automatizaciones</h3>
+            <p>Definimos las reglas con tu equipo y el sistema las aplica siempre igual.</p>
+          </article>
+          <article class="feature" data-reveal data-reveal-delay="3">
+            <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg></span>
+            <h3>Cobros</h3>
+            <p>Integración con Mercado Pago para que el estado de pago llegue al mismo lugar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRECIO + CTA ============ -->
+    <section class="section-block cta-band" aria-labelledby="cta-title">
+      <div class="container cta-band__inner" data-reveal>
+        <div class="product-commercial">
+          <p class="eyebrow">Precio</p>
+          <div class="product-commercial__pricing">
+            <div class="product-commercial__row">
+              <span class="product-commercial__label">Implementación</span>
+              <span class="product-commercial__amount">ARS 1.968.000</span>
+            </div>
+            <div class="product-commercial__row">
+              <span class="product-commercial__label">Mensual</span>
+              <span class="product-commercial__amount">ARS 935.000</span>
+            </div>
+          </div>
+          <p class="note">Valores de referencia sujetos a confirmación según alcance e implementación.</p>
+        </div>
+        <h2 id="cta-title">¿Con qué sistemas trabaja tu empresa?</h2>
+        <p>Contanos qué usás hoy y vemos qué se puede conectar y automatizar.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--primary btn--lg" href="#whatsapp" data-whatsapp>Hablemos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OTROS PRODUCTOS ============ -->
+    <section class="section-block other-products" aria-labelledby="other-title">
+      <div class="container">
+        <h2 id="other-title" class="section-title" data-reveal>Otros productos</h2>
+        <div class="other-products__list" data-reveal>
+            <a class="other-products__item" href="../productos/conversa.html">
+              <span class="other-products__name">Cerodos Conversa</span>
+              <span class="other-products__sub">CRM Conversacional</span>
+            </a>
+            <a class="other-products__item" href="../productos/agentes.html">
+              <span class="other-products__name">Cerodos Agentes</span>
+              <span class="other-products__sub">Agentes Inteligentes</span>
+            </a>
+            <a class="other-products__item" href="../productos/proyectos.html">
+              <span class="other-products__name">Cerodos Proyectos</span>
+              <span class="other-products__sub">Desarrollos con alcance definido.</span>
+            </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ============ FOOTER (compartido — ver _partials.html) ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="brand" href="../index.html" aria-label="Cerodos — inicio">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__word">cerodos</span>
+        </a>
+        <p>Inteligencia que suma capacidad.</p>
+      </div>
+
+      <nav class="site-footer__links" aria-label="Enlaces del pie">
+        <a href="../productos/index.html">Productos</a>
+        <a href="../soluciones/index.html">Soluciones</a>
+        <a href="../nosotros/index.html">Nosotros</a>
+        <a href="../contacto/index.html">Contacto</a>
+      </nav>
+    </div>
+    <div class="container site-footer__legal">
+      <p>&copy; <span id="year"></span> Cerodos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/cerodos.js"></script>
+<a class="wa-floating" href="#whatsapp" data-whatsapp aria-label="Hablemos por WhatsApp" title="Hablemos por WhatsApp"><svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M26.7 5.3a14 14 0 0 0-22 16.6L2.8 29l7.3-1.9A14 14 0 0 0 26.7 5.3Z"/><path fill="currentColor" d="M11.3 8.7c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.8.1-1.2.6-.4.5-1.5 1.5-1.5 3.6s1.5 4.1 1.7 4.4c.2.3 3 4.7 7.4 6.4 3.7 1.5 4.4 1.2 5.2 1.1.8-.1 2.6-1.1 3-2.1.4-1 .4-1.9.3-2.1-.1-.2-.4-.3-.9-.5l-3-1.4c-.4-.2-.7-.3-1 .2-.3.5-1.1 1.4-1.4 1.7-.3.3-.5.3-1 .1-.5-.2-2-.7-3.7-2.3-1.4-1.2-2.3-2.7-2.5-3.2-.3-.5 0-.7.2-.9l.7-.8c.2-.3.3-.5.4-.8.2-.3.1-.6 0-.8l-1.1-2.5Z"/></svg></a>
+</body>
+</html>

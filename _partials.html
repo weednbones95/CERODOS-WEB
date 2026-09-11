@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>_partials — referencia de header y footer (no es una página del sitio)</title>
+  <style>
+    body { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin: 0; padding: 2rem 1.25rem; max-width: 60rem; margin-inline: auto; color: #0f172a; line-height: 1.5; }
+    h1 { font-size: 1.3rem; }
+    h2 { font-size: 1.05rem; margin-top: 2.5rem; border-top: 1px solid #e5e7eb; padding-top: 1.5rem; }
+    h3 { font-size: 0.9rem; color: #475569; margin-top: 1.5rem; }
+    pre { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; overflow-x: auto; font-size: 0.78rem; }
+    .warn { background: #eef3ff; border-left: 3px solid #2563eb; padding: 0.75rem 1rem; border-radius: 4px; }
+    ul { font-size: 0.85rem; }
+    code { font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+  <h1>_partials.html — referencia de header y footer</h1>
+
+  <p class="warn">
+    <strong>Este archivo no es una página del sitio y no se publica.</strong>
+    Es la fuente de verdad documental del header y del footer, que en el sitio
+    están duplicados en cada página (estrategia de duplicación controlada: sin
+    frameworks, sin build, sin <code>fetch</code>, sin Web Components).
+    No se carga dinámicamente desde ningún lado.
+  </p>
+
+  <h2>Cómo usarlo</h2>
+  <ul>
+    <li>Si cambiás el header o el footer, actualizá primero este archivo y después
+        replicá el cambio en las 14 páginas del sitio.</li>
+    <li>Hay <strong>dos variantes</strong>, y la única diferencia entre ellas son las rutas:
+        la variante raíz usa rutas como <code>assets/…</code> y <code>productos/…</code>,
+        y la variante de nivel 1 antepone <code>../</code>.</li>
+    <li>Los enlaces a carpetas siempre terminan en <code>index.html</code>
+        (<code>productos/index.html</code>, no <code>productos/</code>) para que el
+        sitio funcione también abierto con <code>file://</code>, sin servidor.</li>
+    <li>El atributo <code>aria-current</code> marca la página actual:
+        <code>aria-current="page"</code> en la página exacta y
+        <code>aria-current="true"</code> en el ítem de sección cuando estás en una
+        página hija (por ejemplo, "Productos" mientras mirás Conversa).</li>
+  </ul>
+
+  <h2>Qué página usa qué variante</h2>
+  <ul>
+    <li><strong>Variante raíz</strong>: <code>index.html</code></li>
+    <li><strong>Variante nivel 1</strong>: todo lo que está dentro de
+        <code>productos/</code>, <code>soluciones/</code>, <code>probar-cerodos/</code>,
+        <code>casos/</code>, <code>nosotros/</code> y
+        <code>contacto/</code></li>
+  </ul>
+
+  <h2>1. &lt;head&gt; + apertura</h2>
+  <p>El <code>&lt;title&gt;</code> y la <code>meta description</code> son propios de cada página: no se copian.</p>
+    <h3>Variante raíz</h3>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+  &lt;title&gt;Cerodos — Sistemas para que tu empresa trabaje mejor&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;Centralizamos información, conectamos herramientas y automatizamos procesos para pymes. CRM conversacional, agentes inteligentes e integración con tu sistema de gestión.&quot; /&gt;
+
+  &lt;!-- Tipografías de marca: Manrope (títulos) e Inter (texto/interfaz) --&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot; /&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin /&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&amp;amp;family=Inter:wght@400;500;600;700&amp;amp;display=swap&quot; rel=&quot;stylesheet&quot; /&gt;
+
+  &lt;link rel=&quot;icon&quot; href=&quot;assets/logo/cerodos-favicon-16.png&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; /&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;assets/logo/cerodos-favicon-32.png&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; /&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;assets/logo/cerodos-favicon-64.png&quot; type=&quot;image/png&quot; sizes=&quot;64x64&quot; /&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/cerodos.css&quot; /&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/fondos-v08.css&quot; /&gt;
+&lt;style&gt;main#main{--fondo-v08:url('fondos-v12/home.svg')}&lt;/style&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/whatsapp.css&quot;&gt;
+&lt;script defer src=&quot;assets/js/whatsapp-config.js&quot;&gt;&lt;/script&gt;
+&lt;script defer src=&quot;assets/js/whatsapp.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;</code></pre>
+    <p class="warn">Cada página tiene su propio fondo (<code>fondos-v12/&lt;página&gt;.svg</code>) vía la variable <code>--fondo-v08</code>, y algunas suman una hoja extra propia (<code>precios-v07.css</code> en los 4 productos, <code>home-circular-v17.css/js</code> y <code>logo-pincelada-v13.css</code> en la Home, <code>nosotros-contacto-v15.css</code> en Nosotros, <code>la-ribera-capturas-v16.css</code> en La Ribera, <code>inmobiliarias-caso-v20.css</code> en Inmobiliarias). <code>whatsapp.css/js</code> y <code>fondos-v08.css</code> son comunes a las 13 páginas.</p>
+
+    <h3>Variante nivel 1</h3>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+  &lt;title&gt;Cerodos Conversa — CRM Conversacional&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;WhatsApp, Instagram, Messenger y Web Chat en una sola bandeja, con operadores, historial, tickets, etiquetas y métricas.&quot; /&gt;
+
+  &lt;!-- Tipografías de marca: Manrope (títulos) e Inter (texto/interfaz) --&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot; /&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin /&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&amp;amp;family=Inter:wght@400;500;600;700&amp;amp;display=swap&quot; rel=&quot;stylesheet&quot; /&gt;
+
+  &lt;link rel=&quot;icon&quot; href=&quot;../assets/logo/cerodos-favicon-16.png&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; /&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;../assets/logo/cerodos-favicon-32.png&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; /&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;../assets/logo/cerodos-favicon-64.png&quot; type=&quot;image/png&quot; sizes=&quot;64x64&quot; /&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/css/cerodos.css&quot; /&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/css/fondos-v08.css&quot; /&gt;
+&lt;style&gt;main#main{--fondo-v08:url('../fondos-v12/conversa.svg')}&lt;/style&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/css/whatsapp.css&quot;&gt;
+&lt;script defer src=&quot;../assets/js/whatsapp-config.js&quot;&gt;&lt;/script&gt;
+&lt;script defer src=&quot;../assets/js/whatsapp.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;</code></pre>
+
+
+  <h2>2. Header (skip-link + barra + menú móvil)</h2>
+  <p>Ejemplo de la variante nivel 1 tomado de <code>productos/conversa.html</code>,
+     que marca "Productos" con <code>aria-current="true"</code>.</p>
+    <h3>Variante raíz</h3>
+    <pre><code>  &lt;a class=&quot;skip-link&quot; href=&quot;#main&quot;&gt;Saltar al contenido principal&lt;/a&gt;
+
+  &lt;!-- ============ HEADER (compartido — ver _partials.html) ============ --&gt;
+  &lt;header class=&quot;site-header&quot; id=&quot;top&quot;&gt;
+    &lt;div class=&quot;container site-header__inner&quot;&gt;
+      &lt;a class=&quot;brand&quot; href=&quot;index.html&quot; aria-label=&quot;Cerodos — inicio&quot;&gt;
+        &lt;img class=&quot;brand__isotipo&quot; src=&quot;assets/logo/cerodos-isotipo-caja-205x130.png&quot; alt=&quot;&quot; width=&quot;205&quot; height=&quot;130&quot; /&gt;
+        &lt;img class=&quot;brand__wordmark&quot; src=&quot;assets/logo/manual-extract-wordmark-dark.png&quot; alt=&quot;&quot; width=&quot;117&quot; height=&quot;27&quot; /&gt;
+      &lt;/a&gt;
+
+      &lt;nav class=&quot;main-nav&quot; id=&quot;main-nav&quot; aria-label=&quot;Navegación principal&quot;&gt;
+        &lt;ul class=&quot;main-nav__list&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;productos/index.html&quot;&gt;Productos&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;soluciones/index.html&quot;&gt;Soluciones&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;probar-cerodos/index.html&quot;&gt;Probá Cerodos&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;nosotros/index.html&quot;&gt;Nosotros&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+
+      &lt;div class=&quot;site-header__actions&quot;&gt;
+        &lt;a class=&quot;btn btn--primary btn--sm&quot; href=&quot;#whatsapp&quot; data-whatsapp&gt;Hablemos&lt;/a&gt;
+        &lt;button
+          class=&quot;nav-toggle&quot;
+          id=&quot;nav-toggle&quot;
+          type=&quot;button&quot;
+          aria-expanded=&quot;false&quot;
+          aria-controls=&quot;mobile-nav&quot;
+          aria-label=&quot;Abrir menú de navegación&quot;
+        &gt;
+          &lt;span class=&quot;nav-toggle__bar&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;nav-toggle__bar&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;nav-toggle__bar&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Menú móvil --&gt;
+    &lt;div class=&quot;mobile-nav&quot; id=&quot;mobile-nav&quot; data-state=&quot;closed&quot;&gt;
+      &lt;ul class=&quot;mobile-nav__list&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;productos/index.html&quot;&gt;Productos&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;soluciones/index.html&quot;&gt;Soluciones&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;probar-cerodos/index.html&quot;&gt;Probá Cerodos&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;nosotros/index.html&quot;&gt;Nosotros&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class=&quot;btn btn--primary&quot; href=&quot;#whatsapp&quot; data-whatsapp&gt;Hablemos&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;</code></pre>
+
+    <h3>Variante nivel 1</h3>
+    <pre><code>  &lt;a class=&quot;skip-link&quot; href=&quot;#main&quot;&gt;Saltar al contenido principal&lt;/a&gt;
+
+  &lt;!-- ============ HEADER (compartido — ver _partials.html) ============ --&gt;
+  &lt;header class=&quot;site-header&quot; id=&quot;top&quot;&gt;
+    &lt;div class=&quot;container site-header__inner&quot;&gt;
+      &lt;a class=&quot;brand&quot; href=&quot;../index.html&quot; aria-label=&quot;Cerodos — inicio&quot;&gt;
+        &lt;img class=&quot;brand__isotipo&quot; src=&quot;../assets/logo/cerodos-isotipo-caja-205x130.png&quot; alt=&quot;&quot; width=&quot;205&quot; height=&quot;130&quot; /&gt;
+        &lt;img class=&quot;brand__wordmark&quot; src=&quot;../assets/logo/manual-extract-wordmark-dark.png&quot; alt=&quot;&quot; width=&quot;117&quot; height=&quot;27&quot; /&gt;
+      &lt;/a&gt;
+
+      &lt;nav class=&quot;main-nav&quot; id=&quot;main-nav&quot; aria-label=&quot;Navegación principal&quot;&gt;
+        &lt;ul class=&quot;main-nav__list&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;../productos/index.html&quot; aria-current=&quot;true&quot;&gt;Productos&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;../soluciones/index.html&quot;&gt;Soluciones&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;../probar-cerodos/index.html&quot;&gt;Probá Cerodos&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;../nosotros/index.html&quot;&gt;Nosotros&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+
+      &lt;div class=&quot;site-header__actions&quot;&gt;
+        &lt;a class=&quot;btn btn--primary btn--sm&quot; href=&quot;#whatsapp&quot; data-whatsapp&gt;Hablemos&lt;/a&gt;
+        &lt;button
+          class=&quot;nav-toggle&quot;
+          id=&quot;nav-toggle&quot;
+          type=&quot;button&quot;
+          aria-expanded=&quot;false&quot;
+          aria-controls=&quot;mobile-nav&quot;
+          aria-label=&quot;Abrir menú de navegación&quot;
+        &gt;
+          &lt;span class=&quot;nav-toggle__bar&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;nav-toggle__bar&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;nav-toggle__bar&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Menú móvil --&gt;
+    &lt;div class=&quot;mobile-nav&quot; id=&quot;mobile-nav&quot; data-state=&quot;closed&quot;&gt;
+      &lt;ul class=&quot;mobile-nav__list&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;../productos/index.html&quot; aria-current=&quot;true&quot;&gt;Productos&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;../soluciones/index.html&quot;&gt;Soluciones&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;../probar-cerodos/index.html&quot;&gt;Probá Cerodos&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;../nosotros/index.html&quot;&gt;Nosotros&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class=&quot;btn btn--primary&quot; href=&quot;#whatsapp&quot; data-whatsapp&gt;Hablemos&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;</code></pre>
+
+
+  <h2>3. Footer + cierre</h2>
+    <h3>Variante raíz</h3>
+    <pre><code>  &lt;!-- ============ FOOTER (compartido — ver _partials.html) ============ --&gt;
+  &lt;footer class=&quot;site-footer&quot;&gt;
+    &lt;div class=&quot;container site-footer__inner&quot;&gt;
+      &lt;div class=&quot;site-footer__brand&quot;&gt;
+        &lt;a class=&quot;brand&quot; href=&quot;index.html&quot; aria-label=&quot;Cerodos — inicio&quot;&gt;
+          &lt;span class=&quot;brand__mark&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;brand__word&quot;&gt;cerodos&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;p&gt;Inteligencia que suma capacidad.&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;nav class=&quot;site-footer__links&quot; aria-label=&quot;Enlaces del pie&quot;&gt;
+        &lt;a href=&quot;productos/index.html&quot;&gt;Productos&lt;/a&gt;
+        &lt;a href=&quot;soluciones/index.html&quot;&gt;Soluciones&lt;/a&gt;
+        &lt;a href=&quot;nosotros/index.html&quot;&gt;Nosotros&lt;/a&gt;
+        &lt;a href=&quot;contacto/index.html&quot;&gt;Contacto&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;container site-footer__legal&quot;&gt;
+      &lt;p&gt;&amp;copy; &lt;span id=&quot;year&quot;&gt;&lt;/span&gt; Cerodos. Todos los derechos reservados.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;script src=&quot;assets/js/cerodos.js&quot;&gt;&lt;/script&gt;
+&lt;a class=&quot;wa-floating&quot; href=&quot;#whatsapp&quot; data-whatsapp aria-label=&quot;Hablemos por WhatsApp&quot; title=&quot;Hablemos por WhatsApp&quot;&gt;&lt;svg viewBox=&quot;0 0 32 32&quot; width=&quot;32&quot; height=&quot;32&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;…&lt;/svg&gt;&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+
+    <h3>Variante nivel 1</h3>
+    <pre><code>  &lt;!-- ============ FOOTER (compartido — ver _partials.html) ============ --&gt;
+  &lt;footer class=&quot;site-footer&quot;&gt;
+    &lt;div class=&quot;container site-footer__inner&quot;&gt;
+      &lt;div class=&quot;site-footer__brand&quot;&gt;
+        &lt;a class=&quot;brand&quot; href=&quot;../index.html&quot; aria-label=&quot;Cerodos — inicio&quot;&gt;
+          &lt;span class=&quot;brand__mark&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;brand__word&quot;&gt;cerodos&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;p&gt;Inteligencia que suma capacidad.&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;nav class=&quot;site-footer__links&quot; aria-label=&quot;Enlaces del pie&quot;&gt;
+        &lt;a href=&quot;../productos/index.html&quot;&gt;Productos&lt;/a&gt;
+        &lt;a href=&quot;../soluciones/index.html&quot;&gt;Soluciones&lt;/a&gt;
+        &lt;a href=&quot;../nosotros/index.html&quot;&gt;Nosotros&lt;/a&gt;
+        &lt;a href=&quot;../contacto/index.html&quot;&gt;Contacto&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;container site-footer__legal&quot;&gt;
+      &lt;p&gt;&amp;copy; &lt;span id=&quot;year&quot;&gt;&lt;/span&gt; Cerodos. Todos los derechos reservados.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;script src=&quot;../assets/js/cerodos.js&quot;&gt;&lt;/script&gt;
+&lt;a class=&quot;wa-floating&quot; href=&quot;#whatsapp&quot; data-whatsapp aria-label=&quot;Hablemos por WhatsApp&quot; title=&quot;Hablemos por WhatsApp&quot;&gt;&lt;svg viewBox=&quot;0 0 32 32&quot; width=&quot;32&quot; height=&quot;32&quot; aria-hidden=&quot;true&quot; focusable=&quot;false&quot;&gt;…&lt;/svg&gt;&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+
+</body>
+</html>

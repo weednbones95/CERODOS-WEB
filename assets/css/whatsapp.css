@@ -1,0 +1,7 @@
+.wa-notice{max-width:min(420px,calc(100vw - 48px));padding:28px;border:1px solid #e5e7eb;border-radius:16px;background:#fff;color:#0f172a;font-family:var(--font-body);box-shadow:0 16px 48px #0f172a26}.wa-notice::backdrop{background:#0f172a66}.wa-notice h2{font-size:1.35rem}.wa-notice p{color:#263249;margin-bottom:24px}
+
+/* Botón compartido, estático y fuera del flujo. */
+.wa-floating{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));z-index:110;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;text-decoration:none;box-shadow:0 4px 16px rgba(15,23,42,.2);border:2px solid #fff;touch-action:manipulation;}.wa-floating:hover{background:#1cba59;}.wa-floating:focus-visible{outline:3px solid #0f172a;outline-offset:4px;border-radius:50%;}.wa-floating svg{flex:none;width:32px;height:32px;}@media print{.wa-floating{display:none;}}
+
+/* Ajuste: WhatsApp compacto en blanco y negro. */
+.wa-floating{width:44px;height:44px;background:#111;color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.16);}.wa-floating svg{width:24px;height:24px;}.wa-floating:hover{background:#333;}
