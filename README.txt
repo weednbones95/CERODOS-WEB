@@ -21,17 +21,26 @@ probar-cerodos/index.html         Demo del agente
 casos/index.html                  Índice de casos
 casos/la-ribera.html              Caso La Ribera
 nosotros/index.html               Nosotros
-precios/index.html                Precios
 contacto/index.html               Contacto + Cómo empezamos
 
-assets/css/cerodos.css            Hoja de estilos única, compartida
-assets/js/cerodos.js              JavaScript único, compartido
-assets/logo/                      Logo, favicon y su documentación
-assets/img/                       Capturas reales del sistema (pendientes)
+Trece páginas en total. Los precios ya no tienen página propia: cada
+producto muestra su bloque comercial dentro de su propia página.
+
+assets/css/                       Hojas de estilo. cerodos.css es la base
+                                  compartida por las trece páginas; el resto
+                                  son capas por bloque o por página.
+assets/js/                        JavaScript. cerodos.js es el compartido;
+                                  whatsapp.js y home-circular-v17.js son
+                                  complementos.
+assets/fondos-v12/                Fondo decorativo SVG, uno por página.
+assets/graphics/                  Ilustraciones sueltas usadas en CSS.
+assets/logo/                      Logo, favicons y su documentación.
+assets/img/                       Capturas reales del sistema.
 
 _partials.html                    Referencia del header y del footer. NO es
                                   una página del sitio y no se publica.
 _v1-landing/                      Snapshot de la landing anterior. No publicar.
+                                  Excluido del repositorio por .gitignore.
 
 
 CONVENCIONES
@@ -43,29 +52,60 @@ Rutas
   Los enlaces a carpetas siempre terminan en index.html, para que el sitio
   funcione también abierto directamente desde el disco (file://).
 
+  Excepción deliberada: el fondo de cada página se declara en la propia
+  página como --fondo-v08: url('../fondos-v12/NOMBRE.svg'). Ese ../ parece
+  incorrecto desde la raíz, pero no lo es: la variable se consume dentro de
+  assets/css/fondos-v08.css, y el navegador resuelve la ruta relativa a ese
+  archivo CSS, no a la página. Por eso la misma forma funciona igual desde
+  la raíz y desde las subcarpetas. No "corregirla".
+
 Profundidad
   Máximo un nivel de carpetas. Nada de productos/conversa/index.html.
 
 Header y footer
   Duplicados en cada página a propósito (duplicación controlada). La fuente
   de verdad documental es _partials.html: si cambian, se actualiza primero
-  ese archivo y después las 14 páginas.
+  ese archivo y después las trece páginas.
 
 Metadatos
   Cada página tiene su propio <title> y su propia meta description. No se
   copian de la Home.
 
 CSS
-  Un solo archivo para todo el sitio. Los componentes nuevos (bloque 8) están
+  cerodos.css cubre todo el sitio. Los componentes nuevos (bloque 8) están
   escritos mobile-first: base = mobile, y se amplían con @media (min-width: …).
   Los componentes heredados de la landing v1 (bloques 1-7) siguen siendo
   desktop-first y se migran solo cuando hace falta tocarlos.
   Breakpoints de referencia: 640 / 860 / 1024.
+  Las hojas versionadas (v07, v13, v15, v16, v17, v20, v22) se cargan solo
+  en las páginas que las necesitan y no modifican el resto del sitio.
 
 JavaScript
-  Un solo archivo para todo el sitio. Cada módulo se auto-protege: si su HTML
-  no existe en la página, no hace nada. Por eso el mismo archivo se carga en
-  las 14 páginas sin condicionales.
+  cerodos.js se carga en las trece páginas. Cada módulo se auto-protege: si
+  su HTML no existe en la página, no hace nada. Por eso el mismo archivo se
+  carga en todas sin condicionales.
+
+Intro de marca
+  Solo en la Home. Es una capa superpuesta (position: fixed) que se desvanece
+  sola: no ocupa espacio en el flujo, no desplaza contenido y no usa
+  JavaScript. Dura 1,2 s en mobile y 1,5 s en pantallas anchas, y no aparece
+  si el visitante pidió menos animación en su sistema.
+
+
+PUBLICACIÓN
+-----------
+
+No hay proceso de build: lo que está en el repositorio es lo que se publica.
+Se sube el contenido de la raíz tal cual, excluyendo lo que marca .gitignore
+(_v1-landing/, Graphic/, Claude outputs/, app.js y styles.css de la raíz).
+
+La página de inicio es index.html en la raíz.
+
+Sirve cualquier hosting estático (Netlify, Vercel, Cloudflare Pages, GitHub
+Pages o un hosting tradicional por FTP). No requiere Node, PHP ni base de
+datos.
+
+Antes de publicar conviene completar el número de WhatsApp: ver abajo.
 
 
 ESTADO ACTUAL
@@ -76,18 +116,15 @@ de front-end: no envían nada ni están conectados a ninguna IA real.
 
 Pendientes conocidos:
 
-- Capturas reales del sistema para casos/la-ribera.html. Hoy hay marcos
-  placeholder claramente identificados; ver assets/img/README.txt.
-- Assets del logo: ver assets/logo/README.txt. La limpieza de los archivos
-  extraídos del manual (incluidos dos recortes de prueba que quedaron sin
-  uso) está pendiente para una fase posterior.
-- Intro de marca animada: existe solo en la Home. Suma una pantalla completa
-  antes del mensaje principal, lo que hoy contradice el objetivo de recorrer
-  la Home en unos tres scrolls en celular. Pendiente de revisión.
-- Precios: los valores publicados son de referencia y están sujetos a
-  confirmación según alcance e implementación.
+- WhatsApp: assets/js/whatsapp-config.js tiene el número vacío. Mientras
+  siga así, los botones de WhatsApp abren un aviso que dice que el canal
+  estará disponible próximamente. Al completar el número internacional
+  (solo dígitos) pasan a abrir la conversación real.
+- Contenido: los valores comerciales publicados en cada producto son de
+  referencia y están sujetos a confirmación según alcance e implementación.
 - Nosotros: versión breve, escrita solo con información disponible. Pendiente
   de ampliar cuando haya más material corporativo.
+- Assets del logo: ver assets/logo/README.txt.
 
 
 DECISIONES COMERCIALES PENDIENTES

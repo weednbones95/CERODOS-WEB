@@ -1,0 +1,11 @@
+/* Bloque autorizado de problemas cotidianos. Solo Home. */
+.home-problems__intro{max-width:720px;margin-bottom:28px;}
+.home-problems__intro h2{font-size:clamp(1.6rem,1.2rem + 1.4vw,2.2rem);}
+.home-problems__intro > p:last-child{color:var(--color-text-muted);margin:0;}
+.home-problems__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;}
+.home-problem{min-width:0;padding:24px;border:1px solid var(--color-border);border-radius:16px;background:#fff;}
+.home-problem h3{font-size:1.15rem;line-height:1.35;margin-bottom:10px;}
+.home-problem p{color:var(--color-text-muted);font-size:.95rem;line-height:1.6;}
+.home-problem__solution{margin:18px 0 0;padding-top:16px;border-top:1px solid #e5e7eb;}
+.home-problem__solution span{display:block;font-weight:700;font-size:.75rem;letter-spacing:.025em;color:#0f172a;margin-bottom:5px;}
+@media(min-width:700px){.home-problems__grid{grid-template-columns:repeat(2,minmax(0,1fr));}}

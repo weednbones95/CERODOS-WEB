@@ -1,96 +1,93 @@
-LOGO — PENDIENTE DE REEMPLAZO
-=============================
+LOGO — ESTADO Y ORIGEN DE LOS ARCHIVOS
+======================================
 
-El manual de marca (Graphic/CERODOS Manual 1.png) solo tiene el logo
-incrustado en capturas de baja resolución (~120x100 px). Usar esas capturas
-como archivo final se vería borroso en un header real, y la consigna del
-proyecto es "no redibujar ni reinterpretar el logo". Por eso, en esta
-primera versión el header y el footer usan un wordmark de texto
-("cerodos" en Manrope) más un cuadrado placeholder con el gradiente
-azul→verde de marca, en vez del isotipo real.
+Todos los archivos de esta carpeta son recortes mecánicos del manual de
+marca (Graphic/CERODOS Manual 1.png). Ninguno fue redibujado ni
+reinterpretado: se localizaron por distancia de color, se recortaron tal
+cual y, cuando hizo falta, se quitó el fondo plano por transparencia. No se
+tocó un solo píxel de las formas ni de los colores propios del logo, y el
+espacio negativo entre las dos figuras del isotipo —que es parte del diseño
+original— se conservó intacto.
 
-Qué hace falta para reemplazarlo
----------------------------------
-Colocar acá los archivos reales del logo (idealmente vectoriales) y avisar
-para conectar cada uno en el header, footer y favicon:
-
-- cerodos-horizontal.svg   -> isotipo + wordmark en línea (para el header)
-- cerodos-isotipo.svg      -> solo el isotipo (para usos pequeños/favicon)
-- cerodos-vertical.svg     -> isotipo arriba, wordmark abajo (para portadas)
-- cerodos-monocromo-neg.svg -> versión clara para fondos oscuros (footer,
-  bloque de CRM inmobiliario)
-
-Si solo hay PNG en alta resolución (mínimo ~800 px de ancho), también sirve;
-simplemente no se va a ver tan nítido como un SVG en pantallas de alta
-densidad.
-
-Colores y tipografía ya extraídos del manual (alta confianza, son datos,
-no interpretación visual):
-- Azul CERODOS   #2563EB
-- Verde CERODOS  #10B981
-- Grafito        #0F172A
-- Gris claro     #E5E7EB
-- Blanco         #FFFFFF
-- Tipografía principal: Manrope (títulos)
-- Tipografía secundaria: Inter (texto/interfaz)
+Esa es la regla del proyecto y sigue vigente: no redibujar, no reinterpretar,
+no agregar degradés, texturas ni filtros, no teñir ni recolorear por CSS.
 
 
-ASSETS TEMPORALES DE PRUEBA (intro de marca animada)
-=====================================================
+ARCHIVOS EN USO
+---------------
 
-manual-extract-isotipo.png   (205×130 px nativos)
-manual-extract-wordmark.png  (196×43 px nativos)
+cerodos-isotipo-caja-205x130.png   (205×130)
+  Isotipo del header, en las trece páginas, y también el isotipo de la
+  intro de marca de la Home.
 
-Son recortes directos de la aplicación principal del logo que aparece en
-la portada del propio manual (Graphic/CERODOS Manual 1.png, panel "01"),
-localizados por detección de color y recortados tal cual — sin redibujar,
-sin reinterpretar colores, sin degradés/texturas/filtros ni reescalado
-agresivo. El único procesamiento aplicado, además del recorte, fue quitar
-el fondo plano oscuro del recorte (dejarlo transparente) porque su tono
-exacto no coincidía con el --color-graphite del sitio y se veía un
-recuadro alrededor del logo; es una operación mecánica por color de fondo,
-no toca ni un píxel de las formas ni de los colores propios del logo (la
-sombra/espacio negativo entre las dos figuras, que es parte del diseño
-original, se conservó intacta). Se usan únicamente en la sección de
-prueba `#intro` (ver index.html / styles.css / app.js, bloques marcados
-como "PRUEBA: intro de marca") para evaluar una animación conceptual de
-movimiento de marca.
+manual-extract-wordmark-dark.png   (117×27)
+  Wordmark del header, en las trece páginas. Es la versión en grafito,
+  recortada del panel "03 — Logo principal" del manual (fondo blanco).
 
-No son el asset final de producción: la resolución nativa es baja (son
-una captura de manual, no un vector) y solo se ven nítidos mostrados a
-tamaño moderado. Si se aprueba la intro, reemplazar por un archivo
-vectorial o de alta resolución real cuando esté disponible — mismo
-pendiente que ya explica este README para el header y el footer.
+manual-extract-wordmark.png        (196×43)
+  Wordmark de la intro de marca de la Home, únicamente. Es la versión
+  blanca, recortada de la portada oscura del manual: sirve sobre el fondo
+  grafito de la intro y sería invisible sobre el header blanco. Por eso
+  conviven las dos versiones.
 
-Nota: se probó una variante experimental que separaba el isotipo en dos
-figuras (azul y verde) recortadas por separado del panel "03 — Logo
-principal", para animarlas en secuencia. Se implementó, se revisó
-visualmente y no convenció, así que se revirtió por completo: la intro
-volvió a esta versión de un único isotipo combinado. No quedan archivos
-de esa variante en esta carpeta.
+cerodos-isotipo-plano.png
+  Usado desde CSS como recurso decorativo. No se referencia desde el HTML.
+
+cerodos-favicon-16.png
+cerodos-favicon-32.png
+cerodos-favicon-64.png
+  Favicons declarados en las trece páginas, en los tres tamaños.
 
 
-LOGO REAL EN EL HEADER: WORDMARK OSCURO
-========================================
+ARCHIVOS RETIRADOS
+------------------
 
-manual-extract-wordmark-dark.png  (117×27 px nativos)
+Se eliminaron cuatro archivos que ya no referencia ninguna página:
 
-El header (no el footer, que sigue con el placeholder de arriba) ya usa
-el logo real: el isotipo es el mismo manual-extract-isotipo.png de la
-intro (funciona bien sobre fondo blanco, no hizo falta tocarlo), pero el
-wordmark existente (manual-extract-wordmark.png) es blanco — se recortó
-de la portada oscura del manual y sobre un header blanco queda invisible.
-Por eso se generó este segundo recorte de wordmark, esta vez del panel
-"03 — Logo principal" (el mismo panel de donde salieron las figuras
-azul/verde), que tiene el "cerodos" en grafito/azul oscuro sobre fondo
-blanco plano. Mismo método mecánico que el resto de esta carpeta:
-localización por distancia de color, recorte tal cual (sin redibujar ni
-reinterpretar las letras) y remoción del fondo blanco por transparencia
-(no se tocó el color propio del texto). Se verificó que el recorte no
-incluye restos del isotipo de arriba ni del párrafo de texto de al lado
-del panel.
+favicon.svg                     Reemplazado por los favicons PNG.
+manual-extract-isotipo.png      Reemplazado en header e intro por
+                                cerodos-isotipo-caja-205x130.png.
+manual-extract-isotipo-blue.png   Recortes de una prueba experimental que
+manual-extract-isotipo-green.png  separaba el isotipo en sus dos figuras
+                                  para animarlas en secuencia. Se implementó,
+                                  se revisó y no convenció: se revirtió por
+                                  completo y la intro volvió al isotipo único.
+                                  Los dos recortes habían quedado sin uso.
 
-Se usa únicamente en el `.brand` del header (`.brand__isotipo` +
-`.brand__wordmark` en styles.css). El footer conserva el placeholder
-`.brand__mark`/`.brand__word` sin cambios — queda pendiente un reemplazo
-aparte si se decide actualizarlo también.
+
+PENDIENTES
+----------
+
+Assets vectoriales reales
+  Los archivos de hoy son recortes de un manual en mapa de bits, no
+  vectores. Se ven nítidos a tamaño moderado, pero no escalan. Cuando haya
+  material vectorial disponible, lo ideal sería reemplazarlos por:
+
+  - cerodos-horizontal.svg      isotipo + wordmark en línea (header)
+  - cerodos-isotipo.svg         solo el isotipo (usos chicos y favicon)
+  - cerodos-vertical.svg        isotipo arriba, wordmark abajo (portadas)
+  - cerodos-monocromo-neg.svg   versión clara para fondos oscuros
+
+  Si solo hay PNG de alta resolución (mínimo ~800 px de ancho) también
+  sirve; simplemente no se verá tan nítido en pantallas de alta densidad.
+
+Footer
+  El header ya usa el logo real, pero el footer sigue con el placeholder
+  de CSS (.brand__mark + .brand__word en cerodos.css): un cuadrado con el
+  gradiente azul→verde más la palabra "cerodos" en Manrope. Queda pendiente
+  decidir si se reemplaza por el logo real en versión clara.
+
+
+COLORES Y TIPOGRAFÍA DE MARCA
+-----------------------------
+
+Extraídos del manual. Son datos, no interpretación visual.
+
+  Azul CERODOS    #2563EB
+  Verde CERODOS   #10B981
+  Grafito         #0F172A
+  Gris claro      #E5E7EB
+  Blanco          #FFFFFF
+
+  Tipografía principal    Manrope (títulos)
+  Tipografía secundaria   Inter (texto e interfaz)
